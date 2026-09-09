@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ご制作にあたってのご案内</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif; background-color: #ffffff; color: #1f2937; line-height: 1.8; font-size: 15px; }
+        .layout { display: flex; min-height: 100vh; }
+        .sidebar { width: 280px; flex-shrink: 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; background-color: #f9fafb; border-right: 1px solid #e5e7eb; display: flex; flex-direction: column; padding: 2rem 0 3rem 0; }
+        .sidebar-label { font-size: 0.7rem; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.08em; padding: 0 1.5rem; margin-bottom: 1rem; }
+        .sidebar-links { display: flex; flex-direction: column; }
+        .sidebar-link { display: block; padding: 0.45rem 1.5rem; font-size: 0.8rem; color: #6b7280; text-decoration: none; border-radius: 0.5rem; margin: 0.1rem 0.5rem; transition: background 0.18s, color 0.18s; }
+        .sidebar-link:hover { background-color: #e5e7eb; color: #111827; }
+        .sidebar-link.active { background-color: #fffdf5; color: #92703a; font-weight: 700; }
+        .sidebar-card { margin: 1.5rem 1rem 0 1rem; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 1.25rem; font-size: 0.75rem; color: #6b7280; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .sidebar-card-title { font-weight: 700; color: #1f2937; font-size: 0.85rem; margin-bottom: 0.6rem; border-bottom: 2px solid #b5935a; padding-bottom: 0.4rem; }
+        .sidebar-card-row { display: flex; justify-content: space-between; margin-bottom: 0.35rem; }
+        .sidebar-card-row span:last-child { font-weight: 700; color: #1f2937; }
+        .main { flex: 1; padding: 0 4rem 4rem 4rem; background: #ffffff; min-width: 0; }
+        .page-header { padding: 3.5rem 0 2.5rem 0; margin-bottom: 2.5rem; border-bottom: 3px solid #b5935a; }
+        .badge { display: inline-block; padding: 0.2rem 0.75rem; border-radius: 9999px; font-size: 0.78rem; font-weight: 600; background: #fffdf5; color: #92703a; border: 1px solid #b5935a; margin-bottom: 1rem; letter-spacing: 0.06em; }
+        .page-title { font-size: 2.2rem; font-weight: 800; color: #111827; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 0.75rem; }
+        .page-subtitle { color: #6b7280; font-size: 1rem; font-weight: 500; }
+        .section-card { background: #ffffff; border-radius: 1rem; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 2rem; padding: 2.5rem; transition: box-shadow 0.25s; }
+        .section-card:hover { box-shadow: 0 10px 20px -3px rgba(0,0,0,0.09); }
+        .section-head { display: flex; align-items: center; margin-bottom: 1.75rem; }
+        .section-bar { width: 6px; height: 2rem; border-radius: 9999px; margin-right: 1rem; flex-shrink: 0; }
+        .bar-gold { background: #b5935a; }
+        .bar-green { background: #059669; }
+        .bar-red { background: #dc2626; }
+        .bar-gray { background: #6b7280; }
+        .section-title { font-size: 1.35rem; font-weight: 700; color: #111827; }
+        .prose { color: #4b5563; line-height: 1.9; }
+        .prose p { margin-bottom: 1rem; }
+        .prose strong { color: #111827; }
+        .box-gold { border-left: 4px solid #b5935a; background: #fffdf5; padding: 1rem 1.25rem; margin: 1.25rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+        .box-gold .box-label { font-size: 0.8rem; font-weight: 700; color: #92703a; margin-bottom: 0.5rem; }
+        .box-green { border-left: 4px solid #059669; background: #f0fdf4; padding: 1rem 1.25rem; margin: 1.25rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+        .box-green .box-label { font-size: 0.8rem; font-weight: 700; color: #065f46; margin-bottom: 0.5rem; }
+        .box-red { border-left: 4px solid #ef4444; background: #fef2f2; padding: 1rem 1.25rem; margin: 1.25rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+        .box-red .box-label { font-size: 0.8rem; font-weight: 700; color: #991b1b; margin-bottom: 0.5rem; }
+        .prop-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 1rem 0; }
+        .prop-table thead th { background: #f9fafb; padding: 0.65rem 1rem; text-align: left; font-weight: 700; color: #374151; border-bottom: 2px solid #e5e7eb; font-size: 0.78rem; letter-spacing: 0.04em; }
+        .prop-table tbody td { padding: 0.75rem 1rem; border-bottom: 1px solid #f3f4f6; color: #4b5563; vertical-align: top; line-height: 1.7; }
+        .prop-table tbody tr:last-child td { border-bottom: none; }
+        .prop-table tbody tr:hover { background: #fafafa; }
+        .prop-table td.label { font-weight: 700; color: #111827; width: 12rem; }
+        .prop-table td.price { font-weight: 700; color: #111827; white-space: nowrap; width: 8rem; }
+        .price-highlight { font-size: 1.05rem; color: #b5935a; font-weight: 800; }
+        .page-footer { margin-top: 4rem; padding: 2.5rem 0; border-top: 1px solid #e5e7eb; text-align: center; font-size: 0.75rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; }
+        @media (max-width: 768px) {
+            .layout { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid #e5e7eb; padding: 1.25rem 0 1rem 0; }
+            .sidebar-card { display: none; }
+            .main { padding: 0 1.25rem 3rem 1.25rem; }
+            .page-header { padding: 2rem 0 1.5rem 0; }
+            .page-title { font-size: 1.5rem; }
+            .section-card { padding: 1.5rem; }
+            .sidebar-links { flex-direction: row; flex-wrap: wrap; padding: 0 0.75rem; gap: 0.25rem; }
+            .sidebar-link { margin: 0; padding: 0.3rem 0.7rem; font-size: 0.72rem; }
+            .sidebar-label { padding: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar">
+        <p class="sidebar-label">INDEX / 目次</p>
+        <div class="sidebar-links">
+            <a href="#s1" class="sidebar-link">1. サーバー・ドメインについて</a>
+            <a href="#s2" class="sidebar-link">2. 業務内容・料金表</a>
+            <a href="#s3" class="sidebar-link">3. スケジュール</a>
+            <a href="#s4" class="sidebar-link">4. トラブル対応の運用ルール</a>
+        </div>
+        <div class="sidebar-card">
+            <p class="sidebar-card-title">ご案内</p>
+            <div class="sidebar-card-row"><span>種別:</span><span>サイト制作</span></div>
+            <div class="sidebar-card-row"><span>制作費:</span><span style="color:#b5935a;">100,000円（税別）</span></div>
+            <div class="sidebar-card-row"><span>公開目標:</span><span>10月5日</span></div>
+        </div>
+    </aside>
+
+    <div class="main">
+        <header class="page-header">
+            <span class="badge">PROPOSAL DOCUMENT</span>
+            <h1 class="page-title">ご制作にあたってのご案内</h1>
+        </header>
+
+        <!-- 1 サーバー・ドメイン -->
+        <section id="s1" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-gold"></div>
+                <h2 class="section-title">1. サーバー・ドメインのご契約について</h2>
+            </div>
+            <div class="prose">
+                <p>今後Google Workspace（有償版）を使う場合、WorkspaceはドメインとGoogle Workspaceのアカウント管理が密接に紐づく仕組みになっています。そのため、サーバー・ドメインの契約はセキュリティ面でも利便性の面でも、御社名義で持っておいていただくのが一番かと思います。</p>
+            </div>
+            <div class="box-red">
+                <p class="box-label">【セキュリティ面】</p>
+                <p style="font-size:0.9rem; color:#4b5563;">Workspaceの管理者権限やパスワードといった機密性の高い情報を外部に渡さず、御社内で完結させておけること。</p>
+            </div>
+            <div class="box-green">
+                <p class="box-label">【利便性の面】</p>
+                <p style="font-size:0.9rem; color:#4b5563;">ユーザー追加や権限設定、セキュリティ周りの変更を、御社側で直接・すぐに動かせる形になること。</p>
+            </div>
+            <div class="prose" style="margin-top:1rem;">
+                <p>そのため、<strong>サーバー・ドメインのご契約は御社側でお持ちいただく形</strong>が良いかと思います。</p>
+            </div>
+        </section>
+
+        <!-- 2 料金表 -->
+        <section id="s2" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-green"></div>
+                <h2 class="section-title">2. 業務内容・料金表</h2>
+            </div>
+            <table class="prop-table">
+                <thead>
+                    <tr><th>業務内容</th><th>内容</th><th>料金</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="label">サイト制作<br>（デザイン・コーディング）</td>
+                        <td>1ページ完結のLP構成（トップ／事業内容／実績／お問い合わせ）<br>※実績ページは御社にて更新可能な形でご用意<br>※掲載文言は御社よりご提供</td>
+                        <td class="price"><span class="price-highlight">100,000円</span><br><span style="font-size:0.78rem; color:#6b7280;">税別</span></td>
+                    </tr>
+                    <tr>
+                        <td class="label">サーバー契約・ドメイン取得</td>
+                        <td>御社にてご対応</td>
+                        <td class="price" style="color:#6b7280;">ー（対象外）</td>
+                    </tr>
+                    <tr>
+                        <td class="label">サーバー契約・ドメイン取得<br>（弊社代行の場合）</td>
+                        <td>オプション対応</td>
+                        <td class="price" style="color:#6b7280;">別途要相談</td>
+                    </tr>
+                    <tr>
+                        <td class="label">サーバー・ドメイン関連の<br>トラブル対応</td>
+                        <td>都度対応（ご依頼時にログイン情報を都度共有いただく形）</td>
+                        <td class="price" style="color:#6b7280;">別途要相談</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 3 スケジュール -->
+        <section id="s3" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-gold"></div>
+                <h2 class="section-title">3. スケジュール</h2>
+            </div>
+            <div style="margin:1.5rem 0; overflow-x:auto;">
+                <div style="display:flex; align-items:flex-start; min-width:560px; padding-bottom:0.5rem;">
+
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
+                        <div style="width:44px; height:44px; border-radius:50%; background:#f0fdf4; border:2px solid #059669; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.85rem; color:#059669; z-index:1;">01</div>
+                        <div style="position:absolute; top:22px; left:calc(50% + 22px); right:0; height:2px; background:#e5e7eb;"></div>
+                        <div style="margin-top:0.75rem; text-align:center; padding:0 0.5rem;">
+                            <div style="font-size:0.7rem; font-weight:700; color:#059669; margin-bottom:0.3rem;">できるだけ早めに</div>
+                            <div style="font-size:0.82rem; color:#374151; font-weight:600; line-height:1.5;">ドメイン・サーバー<br>ご契約</div>
+                            <div style="margin-top:0.5rem; display:inline-block; font-size:0.68rem; font-weight:700; padding:0.15rem 0.55rem; border-radius:9999px; background:#ecfdf5; color:#065f46;">御社対応</div>
+                        </div>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
+                        <div style="width:44px; height:44px; border-radius:50%; background:#fffdf5; border:2px solid #b5935a; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.85rem; color:#b5935a; z-index:1;">02</div>
+                        <div style="position:absolute; top:22px; left:0; right:calc(50% + 22px); height:2px; background:#e5e7eb;"></div>
+                        <div style="position:absolute; top:22px; left:calc(50% + 22px); right:0; height:2px; background:#e5e7eb;"></div>
+                        <div style="margin-top:0.75rem; text-align:center; padding:0 0.5rem;">
+                            <div style="font-size:0.7rem; font-weight:700; color:#b5935a; margin-bottom:0.3rem;">9/14（月）</div>
+                            <div style="font-size:0.82rem; color:#374151; font-weight:600; line-height:1.5;">デザイン<br>ご提案</div>
+                            <div style="margin-top:0.5rem; display:inline-block; font-size:0.68rem; font-weight:700; padding:0.15rem 0.55rem; border-radius:9999px; background:#fffdf5; color:#92703a; border:1px solid #d4b07a;">弊社対応</div>
+                        </div>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
+                        <div style="width:44px; height:44px; border-radius:50%; background:#fffdf5; border:2px solid #b5935a; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.85rem; color:#b5935a; z-index:1;">03</div>
+                        <div style="position:absolute; top:22px; left:0; right:calc(50% + 22px); height:2px; background:#e5e7eb;"></div>
+                        <div style="position:absolute; top:22px; left:calc(50% + 22px); right:0; height:2px; background:#e5e7eb;"></div>
+                        <div style="margin-top:0.75rem; text-align:center; padding:0 0.5rem;">
+                            <div style="font-size:0.7rem; font-weight:700; color:#b5935a; margin-bottom:0.3rem;">〜9/23</div>
+                            <div style="font-size:0.82rem; color:#374151; font-weight:600; line-height:1.5;">修正<br>すり合わせ</div>
+                            <div style="margin-top:0.5rem; display:inline-block; font-size:0.68rem; font-weight:700; padding:0.15rem 0.55rem; border-radius:9999px; background:#f3f4f6; color:#374151;">双方対応</div>
+                        </div>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
+                        <div style="width:44px; height:44px; border-radius:50%; background:#fffdf5; border:2px solid #b5935a; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.85rem; color:#b5935a; z-index:1;">04</div>
+                        <div style="position:absolute; top:22px; left:0; right:calc(50% + 22px); height:2px; background:#e5e7eb;"></div>
+                        <div style="position:absolute; top:22px; left:calc(50% + 22px); right:0; height:2px; background:#e5e7eb;"></div>
+                        <div style="margin-top:0.75rem; text-align:center; padding:0 0.5rem;">
+                            <div style="font-size:0.7rem; font-weight:700; color:#b5935a; margin-bottom:0.3rem;">9/30</div>
+                            <div style="font-size:0.82rem; color:#374151; font-weight:600; line-height:1.5;">最終版<br>確定</div>
+                            <div style="margin-top:0.5rem; display:inline-block; font-size:0.68rem; font-weight:700; padding:0.15rem 0.55rem; border-radius:9999px; background:#f3f4f6; color:#374151;">双方対応</div>
+                        </div>
+                    </div>
+
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
+                        <div style="width:52px; height:52px; border-radius:50%; background:#b5935a; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.75rem; color:#ffffff; z-index:1; margin-top:-4px; box-shadow:0 4px 14px rgba(181,147,90,0.4);">GOAL</div>
+                        <div style="position:absolute; top:22px; left:0; right:calc(50% + 26px); height:2px; background:#e5e7eb;"></div>
+                        <div style="margin-top:0.75rem; text-align:center; padding:0 0.5rem;">
+                            <div style="font-size:0.7rem; font-weight:700; color:#b5935a; margin-bottom:0.3rem;">遅くとも 10/5</div>
+                            <div style="font-size:0.9rem; color:#b5935a; font-weight:800; line-height:1.5;">サイト<br>アップ</div>
+                            <div style="margin-top:0.5rem; display:inline-block; font-size:0.68rem; font-weight:700; padding:0.15rem 0.55rem; border-radius:9999px; background:#b5935a; color:#ffffff;">公開</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 トラブル対応 -->
+        <section id="s4" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-gray"></div>
+                <h2 class="section-title">4. トラブル対応時の運用ルール（補足）</h2>
+            </div>
+            <div class="prose">
+                <p>サーバー・ドメインに関するお問い合わせ・トラブルは都度のご依頼として承ります。</p>
+            </div>
+            <div class="box-red">
+                <p class="box-label">【ログイン情報の取り扱い】</p>
+                <p style="font-size:0.9rem; color:#4b5563;">対応の都度、必要なログイン情報（パスワード等）をご共有いただき、<strong>常時アクセス権は保持いたしません。</strong></p>
+            </div>
+        </section>
+
+        <footer class="page-footer">
+            <p>&copy; 2026 All Rights Reserved.</p>
+        </footer>
+    </div>
+</div>
+
+<script>
+    const links = document.querySelectorAll('.sidebar-link');
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                links.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + id) link.classList.add('active');
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+    sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
