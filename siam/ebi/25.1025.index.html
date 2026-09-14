@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREMIUM AQUA STRATEGY - 事業展開ドキュメント</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for document layout */
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light background for readability */
+            color: #212529;
+            line-height: 1.6;
+            margin: 0; /* Ensure no default margin on body */
+            padding: 0; /* Ensure no default padding on body */
+        }
+        /* New general container for internal sections (excluding cover) */
+        .content-container {
+            max-width: 1100px; /* 1000px から 1100px に変更 */
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .document-section {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+            padding: 40px;
+        }
+        /* H1 styling for internal sections (NO.1 ~ NO.12) */
+        .document-section h1 {
+            color: #1d4ed8; /* Primary blue: #1d4ed8 */
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-bottom: none; 
+            padding-bottom: 0;
+            /* 左側の青いバーのスタイル */
+            border-left: 6px solid #1d4ed8; 
+            padding-left: 15px; /* 青いバーと文字の間隔 */
+        }
+        .document-section h2 {
+            color: #343a40;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-left: none; 
+            padding-left: 0; 
+        }
+        .document-section h3 {
+            color: #495057;
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        /* SPECIFIC FIX: Ensure h3 elements are definitely bold */
+        .document-section h3 strong {
+             font-weight: 700 !important;
+             color: #212529; /* Ensure high contrast */
+        }
+        
+        /* ---------------------------------------------------- */
+        /* ★★★ 本文内の最重要強調語のスタイル (青基調) ★★★ */
+        /* ---------------------------------------------------- */
+        .strong-highlight {
+            color: #004080; /* 濃い青色 */
+            font-weight: 800;
+        }
+
+        /* ---------------------------------------------------- */
+        /* ★★★ NO.10 リスクページ専用のスタイル (赤基調) ★★★ */
+        /* ---------------------------------------------------- */
+        #section-10.document-section {
+            background-color: #fffafa; /* Light red background */
+            border: 2px solid #b91c1c; /* Solid red border */
+            box-shadow: 0 4px 15px rgba(185, 28, 28, 0.2); /* Red shadow */
+        }
+        #section-10 h1 {
+            color: #991b1b; /* Dark red for H1 text */
+            border-left: 6px solid #b91c1c; /* Red border on the left */
+        }
+        #section-10 h2 {
+            color: #991b1b; /* Dark red for H2 text */
+        }
+        #section-10 th {
+            background-color: #fee2e2; /* Very light red background */
+            color: #991b1b; /* Dark red header text */
+        }
+        #section-10 th, #section-10 td {
+            border: 1px solid #fecaca; /* Light red table border */
+        }
+        /* NO.10セクション内の強調語は赤に変更 */
+        #section-10 .strong-highlight-risk {
+            color: #b91c1c; /* Bold red for risk highlights */
+            font-weight: 800;
+        }
+        /* ---------------------------------------------------- */
+
+
+        /* --- COVER SECTION STYLES (FULL WIDE & NO SHADOW) --- */
+        #section-0 {
+            /* Full Wide Styling */
+            max-width: none;
+            width: 100%;
+            margin: 0;
+            padding: 180px 40px; /* Padding for height: 100px -> 180px に増加 */
+            border-radius: 0;
+            
+            /* Background & Border */
+            background: #FFFFFF;
+            box-shadow: none; /* Remove shadow */
+
+            /* Text Alignment */
+            text-align: center;
+            position: relative; /* 画像配置のための基準 */
+            min-height: 450px; /* 最低限の高さを確保 */
+        }
+
+        /* 新しいラッパークラス */
+        .cover-content-wrapper {
+            margin-top: 50px; /* ここでコンテンツ全体を下に移動 */
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Styles specific to the cover text elements */
+        .cover-section .cover-header {
+            /* 修正: absoluteを解除し、中央寄せのフローに戻す */
+            position: static;
+            text-align: center; 
+            margin-bottom: 0.5rem; /* タイトルとの間隔を調整 */
+            font-size: 1.25rem;
+            opacity: 0.8; /* 濃度を少し上げる */
+            padding-left: 0;
+            font-weight: 700; /* 太字に設定 */
+        }
+        
+        /* Inner wrapper to maintain left-aligned header text width and center content */
+        .cover-header-content {
+            max-width: 1000px; /* Constrain internal text width */
+            margin: 0 auto;
+            display: block; /* Important for alignment */
+        }
+
+        /* The main title h1 on the cover */
+        .cover-section .sub-title {
+            font-size: 3.25rem;
+            font-weight: 900;
+            color: #1d4ed8; /* Updated to #1d4ed8 */
+            text-shadow: none; 
+            margin-bottom: 4px;
+            border-left: none;
+            padding-left: 0;
+            /* Wrap content for centering */
+            max-width: 1000px; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Subtitle H2: Removed font-weight 300 override */
+        .cover-section .main-title {
+            font-size: 1.75rem;
+            font-weight: 700; /* Increased weight for emphasis */
+            color: #495057; 
+            margin-top: 1rem;
+            /* Wrap content for centering */
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Footer Text: Increased weight */
+        .cover-section p.mt-8 {
+            font-weight: 600; /* Increased weight */
+            /* Wrap content for centering */
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* --- END COVER SECTION STYLES --- */
+        
+        /* --- COVER DIVIDER STYLE --- */
+        .cover-divider {
+            width: 120px; /* 80pxから120pxに幅を拡張 */
+            height: 3px; /* 線の太さ */
+            background-color: #1d4ed8; /* メインカラーの青 */
+            margin: 20px auto; /* 上下の余白と中央揃え */
+            border-radius: 2px;
+        }
+        /* --- END COVER DIVIDER STYLE --- */
+
+        /* --- COVER IMAGE STYLE --- */
+        .cover-image {
+            position: absolute;
+            top: 50px; /* 上からの配置 */
+            /* left: 50px; を削除し、right を設定 */
+            right: 50px; /* 右からの配置 */
+            width: 150px; /* サイズ調整: 200px -> 150px に縮小 */
+            height: auto;
+            object-fit: contain;
+            z-index: 10;
+            /* モバイルでは非表示にするか、小さくする */
+            @media (max-width: 768px) {
+                width: 100px;
+                top: 20px;
+                right: 20px; /* モバイルでも右に寄せる */
+                left: auto; /* left を解除 */
+            }
+        }
+        /* --- END COVER IMAGE STYLE --- */
+        
+        /* --- TABLE OF CONTENTS STYLE --- */
+        #table-of-contents {
+            border-left: 6px solid #1d4ed8;
+            padding-left: 20px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        #table-of-contents ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        #table-of-contents li {
+            width: 48%; /* 2列表示 */
+            margin-bottom: 8px;
+        }
+        #table-of-contents a {
+            /* 初期状態: 黒色 (color: #212529) */
+            color: #212529; 
+            font-weight: 500;
+            transition: color 0.2s, font-weight 0.2s; /* ホバー時の変化を滑らかに */
+            display: block;
+            padding: 5px 0;
+            border-bottom: 1px dashed #deeaff;
+        }
+        #table-of-contents a:hover {
+            /* ホバー時: 青色 (color: #1d4ed8) と太字 (font-weight: 700) */
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+        
+        /* NO.10 リスク項目の特殊スタイル */
+        #table-of-contents a.risk-link {
+            /* 初期状態: 濃い赤 */
+            color: #991b1b; 
+            font-weight: 600; /* 他のリンクより少し太く */
+        }
+        #table-of-contents a.risk-link:hover {
+            /* ホバー時: さらに濃い赤、太字 */
+            color: #b91c1c;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            #table-of-contents li {
+                width: 100%; /* モバイルでは1列 */
+            }
+        }
+        /* --- END TABLE OF CONTENTS STYLE --- */
+
+        /* --- TOP BUTTON STYLE --- */
+        .top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 50px; 
+            background-color: #1d4ed8;
+            color: white;
+            padding: 20px; 
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.2s, transform 0.2s;
+            z-index: 1000;
+            font-weight: 700;
+            line-height: 1; 
+            width: 60px; 
+            height: 60px; 
+            font-size: 16px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .top-button:hover {
+            background-color: #004080;
+            transform: scale(1.05);
+        }
+
+        /* --- SPACER: Increase margin between cover (sec 0) and content (sec 1) --- */
+        #section-1 {
+            margin-top: 80px; /* 通常の40pxから80pxに増加 */
+        }
+        /* --- END SPACER --- */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            background-color: #ffffff;
+            border: 1px solid #deeaff; /* Light blue border */
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #deeaff; /* Light blue border */
+        }
+        th {
+            background-color: #f0f8ff; /* Very light blue background */
+            color: #1d4ed8; /* Header text color updated to main blue */
+            font-weight: 600;
+        }
+        .list-style {
+            padding-left: 20px;
+        }
+        .list-style li {
+            margin-bottom: 0.5rem;
+        }
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+        /* Adjusting colored info boxes to match new blue scheme */
+        .bg-yellow-50 {
+            background-color: #f0f8ff; /* Equivalent light blue */
+        }
+        .border-yellow-200 {
+            border-color: #deeaff; /* Equivalent light blue border */
+        }
+        
+        /* --- FLOW CHART & DIAGRAM STYLES --- */
+        .flow-diagram-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f0f8ff; /* Very light blue background */
+            border-radius: 8px;
+            border: 1px solid #deeaff;
+            text-align: center;
+            overflow-x: auto;
+        }
+        .flow-box {
+            display: inline-block;
+            background-color: #ffffff;
+            border: 2px solid #1d4ed8;
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            min-width: 150px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .flow-arrow {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: #1d4ed8;
+            vertical-align: middle;
+        }
+        .flow-section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1d4ed8;
+            margin-bottom: 10px;
+            margin-top: 15px;
+        }
+
+        /* --- Custom Box for NO.5 Supply --- */
+        .supply-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #e6f0ff; /* Light blue */
+            border: 2px solid #1d4ed8;
+            border-radius: 10px;
+            height: 120px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .supply-box:hover {
+            transform: translateY(-5px);
+        }
+        .supply-icon {
+            font-size: 2rem;
+            color: #1d4ed8;
+            margin-bottom: 5px;
+        }
+        .supply-title {
+            font-weight: 700;
+            color: #004080;
+            font-size: 1.1rem;
+            margin-bottom: 3px;
+        }
+        .supply-value {
+            font-size: 0.9rem;
+            color: #495057;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Section 0: 表紙 (Cover) - Full Wide Container --><div id="section-0" class="document-section cover-section">
+        <!-- イラスト画像を絶対位置で配置 --><img 
+            src="https://thumb.ac-illust.com/48/48ef5b6de3ad74a78b2a7065678f143c_t.jpeg" 
+            alt="エビのイラスト" 
+            class="cover-image"
+            onerror="this.onerror=null;this.src='https://placehold.co/200x200/1d4ed8/ffffff?text=EBI+ICON'"
+        >
+
+        <!-- 表紙コンテンツラッパー -->
+        <div class="cover-content-wrapper">
+            <p class="cover-header">
+                <span class="cover-header-content">事業展開向け戦略提案</span>
+            </p> <!-- Applied new class for left alignment, positioned to align with image height --><h1 class="sub-title mb-4">高品質エビが拓く<br>次世代マーケット戦略</h1>
+            
+            <!-- 区切り線を追加 --><div class="cover-divider"></div>
+            
+            <h2 class="main-title"><strong>PREMIUM AQUA STRATEGY</strong></h2>
+            <p class="mt-8 text-sm opacity-60">ver1.01 作成日 2025年10月24日</p>
+        </div>
+    </div>
+
+    <!-- Container for all internal sections --><div class="content-container">
+
+        <!-- 目次セクションの追加 --><div id="table-of-contents" class="document-section">
+            <h2>目次 (Table of Contents)</h2>
+            <ul class="list-disc list-style">
+                <li><a href="#section-1">NO.1 提携戦略：コア・バリューとロードマップ</a></li>
+                <li><a href="#section-2">NO.2 プロジェクト推進体制</a></li>
+                <li><a href="#section-3">NO.3 タイ側パートナー企業概要</a></li>
+                <li><a href="#section-4">NO.4 商品優位性：生食グレードの品質証明</a></li>
+                <li><a href="#section-5">NO.5 市場導入戦略：品質と販売力を結ぶ連携</a></li>
+                <li><a href="#section-6">NO.6 最重要課題：物流最適化戦略</a></li>
+                <li><a href="#section-7">NO.7 供給体制：発注ロットとリードタイム</a></li>
+                <li><a href="#section-8">NO.8 提携の前提条件と相互確認事項</a></li>
+                <li><a href="#section-9">NO.9 ネクストアクション</a></li>
+                <!-- NO.10 リスクマネジメント (旧 NO.12) -->
+                <li><a href="#section-10" class="risk-link">NO.10 リスクマネジメント</a></li>
+                <!-- NO.11 成長戦略 (旧 NO.10) -->
+                <li><a href="#section-11">NO.11 成長戦略：新規商材と海外展開</a></li>
+                <!-- NO.12 総括 (旧 NO.11) -->
+                <li><a href="#section-12">NO.12 プロジェクト総括と成功に向けた鍵</a></li>
+            </ul>
+        </div>
+        
+        <!-- Section 1: 提携戦略：コア・バリューとロードマップ --><div id="section-1" class="document-section">
+            <h1>NO.1 提携戦略：コア・バリューとロードマップ</h1>
+            <h2>タイ産高品質バナメイエビ 日本市場導入プロジェクト</h2>
+            <p class="text-lg mb-6">本プロジェクトは、タイで養殖された<span class="strong-highlight">極めて高品質なバナメイエビ</span>を、日本の成長著しい飲食市場へ投入するために計画されました。この提携の目的は、単なる食材の売買に留まらず、両社の強み（タイ側の<strong>品質へのこだわり</strong>と日本側の<strong>強力な販売・マーケティング力</strong>）を組み合わせ、<span class="strong-highlight">高付加価値商品を市場に定着させること</span>です。これにより、相互の事業成長を最大化する共同体制の基盤を築きます。</p>
+            
+            <h3><strong style="font-weight: 700; color: #212529;">プロジェクトの焦点と達成すべきゴール</strong></h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th><strong>項目</strong></th><th><strong>内容</strong></th><th><strong>結論</strong></th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>商材の価値</strong></td><td><span class="strong-highlight">抗生物質不使用</span>で<span class="strong-highlight">生食可能</span>な稀少性の高いエビ。</td><td>競合製品に対する<span class="strong-highlight">圧倒的な優位性</span>を持つ主力商材として導入。</td></tr>
+                        <tr><td><strong>事業連携</strong></td><td>タイ側（品質最優先）と日本側（流通・販路・マーケティング）の戦略的結合。</td><td><span class="strong-highlight">早期の市場浸透</span>と<span class="strong-highlight">収益最大化</span>を目指す共同体制を構築。</td></tr>
+                        <tr><td><strong>最重要課題</strong></td><td>山口県からの<span class="strong-highlight">関東圏への物流ルート確立</span>と<span class="strong-highlight">取引量確保</span>によるコスト最適化。</td><td>サンプル評価と並行し、<span class="strong-highlight">東京着地価格</span>を基準としたサプライチェーン設計を最優先。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="mt-8"><strong style="font-weight: 700; color: #212529;">【視覚化】提携による価値創出のロードマップ</strong></h3>
+            <div class="flow-diagram-container">
+                <div class="flow-box">高品質な限定生産 (タイ側)</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">流通マージン削減 (直接取引)</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">SNS訴求 (生食可能/抗生物質不使用)</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">市場における高付加価値化と差別化</div>
+            </div>
+        </div>
+
+        <!-- Section 2: プロジェクト推進体制 --><div id="section-2" class="document-section">
+            <h1>NO.2 プロジェクト推進体制</h1>
+            <h2>戦略的協業を支えるチーム体制</h2>
+            <p class="text-lg mb-6">このプロジェクトは、生産、流通、経営、商品開発の責任者が直接協力する体制で進められます。各担当者がすぐに決定権を持つことで、迅速に事業を展開します。</p>
+            
+            <!-- H3 見出しを削除し、表組みはそのまま保持 -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>区分</th><th>担当者</th><th>詳細</th><th>概要</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>タイ側：対日窓口</strong></td><td><strong>田崎 氏</strong></td><td>日本側との事業調整、交渉フロントエンド。タイ側の生産情報を日本側へ共有。</td><td>事業推進、条件交渉</td></tr>
+                        <tr><td><strong>タイ側：生産責任者</strong></td><td><strong>小泉 氏</strong></td><td>バナメイエビ等の養殖・生産管理、カキ、ウニ等の新規商材生産を担当。</td><td>商品供給、生産計画</td></tr>
+                        <tr><td><strong>日本側：事業統括</strong></td><td><strong>田子</strong></td><td>事業全体の統括および推進、契約に関する最終判断。日本側事業のフロントエンド。</td><td>事業推進、経営判断</td></tr>
+                        <tr><td><strong>日本側：商品開発</strong></td><td><strong>西濱</strong></td><td>関東圏約30店舗の商品開発責任者。仕入れと新業態設計を担当。</td><td>商品導入、メニュー設計</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>背景情報</h2>
+            <!-- 背景色を追加して視覚的に強調 -->
+            <div class="p-4 rounded-lg" style="background-color: #e6f0ff; border: 1px solid #deeaff;">
+                <ul class="list-disc list-style text-sm space-y-2">
+                    <li><span class="strong-highlight">タイ側</span>は年間生産量を<span class="strong-highlight">約40トンに限定</span>し、品質に徹底的にこだわる生産体制。大手商社を介さず、価値を理解するパートナーとの<span class="strong-highlight">直接取引</span>を志向。</li>
+                    <li><span class="strong-highlight">日本側</span>は西濱が所属する関東圏で居酒屋業態を年間5〜6店舗のペースで急成長（現在約30店舗）。SNSを活用した商品戦略（Z世代ターゲティング）を得意とし、食材の決定権を持つため、迅速な導入判断が期待できる。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 3: タイ側パートナー企業概要 (NO.3とNO.13の統合) --><div id="section-3" class="document-section">
+            <h1>NO.3 タイ側パートナー企業概要</h1>
+            <h2>HAIVA AQUA FARM (タイバ・アクア・ファーム)</h2>
+            <p class="text-lg mb-6">本プロジェクトのタイ側パートナーであるHAIVA AQUA FARMは、品質と安全性を最優先する持続可能な養殖事業者です。その高い技術力と品質管理の厳格さが、水産物以外の事業にも反映されています。</p>
+            
+            <h3>企業の特徴と優位性</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>項目</th><th>詳細</th><th>優位性</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>生産哲学</strong></td><td>大量生産よりも<span class="strong-highlight">品質と安全性を徹底的に追求</span>。年間生産量を<span class="strong-highlight">約40トンに限定</span>。</td><td>競合優位性の高い<span class="strong-highlight">高付加価値商品</span>の安定供給を約束。</td></tr>
+                        <tr><td><strong>独自技術</strong></td><td>微生物を利用した<span class="strong-highlight">水質浄化システム</span>を導入し、<span class="strong-highlight">抗生物質を一切使用しない</span>養殖を実現。</td><td>日本市場で求められる<span class="strong-highlight">生食可能</span>なレベルの鮮度と安全性を確保。</td></tr>
+                        <tr><td><strong>事業連携</strong></td><td>大手商社を介さず、価値を共有できるパートナーとの<span class="strong-highlight">直接取引</span>を志向。</td><td>中間マージンの削減と、日本側のニーズに合わせた<span class="strong-highlight">柔軟な対応</span>が可能。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>補足情報（多角的な事業展開）</h3>
+            <!-- text-sm に変更 -->
+            <p class="text-sm">小泉氏のチームは養殖生産と並行して、パイナップル由来の酵母を原料とした健康食品原料の製造・販売も行っており、事業全体の多様性を示しています。この技術力と品質管理の厳しさが、水産物にも反映されています。</p>
+            <p class="text-sm mt-2 text-gray-500">企業ウェブサイト: <a href="https://thaivagroups.com/en/about" target="_blank" class="text-blue-500 underline">https://thaivagroups.com/en/about</a></p>
+        </div>
+
+        <!-- Section 4: 商品優位性：生食グレードの品質証明 --><div id="section-4" class="document-section">
+            <h1>NO.4 商品優位性：生食グレードの品質証明</h1>
+            <h2>最高品質を実現する生産管理体制</h2>
+            <p class="text-lg mb-6">本商材は、従来の輸入養殖エビが抱える品質的な課題を根本から解決した、<span class="strong-highlight">市場でも稀な最高品質のエビ</span>です。タイ側の高度な養殖技術と、徹底した水質管理体制が、商品に<span class="strong-highlight">圧倒的な差別化要素</span>を与えています。特に、<span class="strong-highlight">抗生物質不使用</span>で養殖されている点が、日本の消費者への最大の訴求点となります。</p>
+            
+            <h3>高品質を担保する生産管理体制</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>差別化要素</th><th>詳細</th><th>メリット（日本側にとっての付加価値）</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>生産環境</strong></td><td>カンボジア国境に近い<span class="strong-highlight">トラート県</span>の清浄な海域。沖合200mから汲み上げた綺麗な海水を直接使用。</td><td>エビ本来の<span class="strong-highlight">強い甘み</span>を引き出す自然環境。</td></tr>
+                        <tr><td><strong>水質管理</strong></td><td><span class="strong-highlight">微生物を利用した水質浄化システム</span>を導入し、<span class="strong-highlight">抗生物質を一切使用しない</span>養殖を実現。</td><td>薬臭さがなく、クリーンな風味を保証。<span class="strong-highlight">生食可能</span>な鮮度と安全性を確保。</td></tr>
+                        <tr><td><strong>品質的特徴</strong></td><td>加熱しても身が縮みにくい<span class="strong-highlight">天然物に近い肉質</span>。従来の養殖エビにありがちな「薬臭さ」がない。</td><td><span class="strong-highlight">高い歩留まり</span>を実現し、顧客満足度の高いプリプリとした食感を提供。</td></tr>
+                        <tr><td><strong>加工・冷凍</strong></td><td>歩留まりを良く見せるための<span class="strong-highlight">膨張剤は不使用</span>。水揚げ後すぐに急速冷凍。</td><td>ロスが少なく、品質を最大限に保持。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>【視覚化】品質優位性の構造</h3>
+            <div class="flow-diagram-container">
+                <div class="flow-box" style="border-color:#004080;">清浄な養殖環境</div>
+                <span class="flow-arrow">+</span>
+                <div class="flow-box" style="border-color:#004080;">微生物による水質浄化</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box" style="background-color: #e6f0ff; border-color: #1d4ed8;">抗生物質不使用</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box" style="background-color: #1d4ed8; color: white;"><strong>生食グレード</strong></div>
+            </div>
+
+            <h3>加工と提供仕様の柔軟性</h3>
+            <ul class="list-disc list-style text-base space-y-1">
+                <li><span class="strong-highlight">多様な加工形態</span>：ホール（殻付き丸ごと）だけでなく、頭なし、殻むき（剥きエビ）、伸ばしエビなど、日本側の調理オペレーションに合わせた多様な加工形態に対応可能です。</li>
+                <li><span class="strong-highlight">メリット</span>：これらの加工形態対応は、店舗での調理オペレーションの効率化に直結し、現場の負荷軽減に貢献します。</li>
+                <li><span class="strong-highlight">サイズ展開</span>：主に31/40サイズ（メイン）、40/50、50/60（キログラムあたりの尾数）での提供が可能です。</li>
+            </ul>
+        </div>
+
+        <!-- Section 5: 市場導入戦略：品質と販売力を結ぶ連携 --><div id="section-5" class="document-section">
+            <h1>NO.5 市場導入戦略：品質と販売力を結ぶ連携</h1>
+            <h2>市場優位性を高める導入と連携</h2>
+            <p class="text-lg mb-6">タイ側が提供する<span class="strong-highlight">限定的な最高品質のエビ</span>と、日本側の<span class="strong-highlight">急速に店舗を拡大している飲食店チェーンの強力な販売力</span>を組み合わせることが、この提携の核です。両社の強みを掛け合わせることで、市場での価格競争に巻き込まれることなく、高付加価値商品として<span class="strong-highlight">優位性を確立</span>し、共同マーケティングで最大の効果を狙います。</p>
+            
+            <h3>導入に向けた基本戦略</h3>
+            <ul class="list-disc list-style text-lg space-y-2">
+                <li><strong class="strong-highlight">価格戦略</strong>：中間マージンを排除することで、市場価格（1,600円〜1,800円/kg）と<span class="strong-highlight">同等以下</span>の価格帯での導入を目指します。</li>
+                <li><strong class="strong-highlight">ターゲット訴求</strong>：商品開発責任者である西濱が、<span class="strong-highlight">「生食可能」な品質</span>に強い関心を示しており、これを活用したメニュー開発を推進します。</li>
+                <li><strong class="strong-highlight">マーケティングインパクト</strong>：西濱が得意とする<span class="strong-highlight">SNSでの「シズル感」</span>と「抗生物質不使用」のストーリー性を掛け合わせることで、若者層（Z世代）に響く強力なコンテンツとなり、集客力を高めます。</li>
+            </ul>
+
+            <h3>供給能力と発注サイクルの特徴</h3>
+            <div class="flex flex-wrap gap-4 mt-4 text-lg">
+                <!-- 年間生産量ボックスの視覚化 -->
+                <div class="w-full md:w-[48%] supply-box">
+                    <span class="supply-icon">🦐</span>
+                    <p class="supply-title">年間生産量</p>
+                    <p class="supply-value">品質維持のため<span class="strong-highlight">約40トンに限定</span>。</p>
+                </div>
+                <!-- 生産サイクルボックスの視覚化 -->
+                <div class="w-full md:w-[48%] supply-box">
+                    <span class="supply-icon">🔄</span>
+                    <p class="supply-title">生産サイクル</p>
+                    <p class="supply-value">約2〜3ヶ月に一度、<span class="strong-highlight">約5トン</span>の規模で定期的に生産。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: 最重要課題：物流最適化戦略 --><div id="section-6" class="document-section">
+            <h1>NO.6 最重要課題：物流最適化戦略</h1>
+            <h2>安定供給とコスト競争力への挑戦</h2>
+            <p class="text-lg mb-6">どんなに素晴らしい商品でも、物流コストと供給ルートが確立できなければ、事業の収益性を確保することはできません。現状の課題は、日本国内の一次保管地である山口県から、最大の消費地である<span class="strong-highlight">関東圏への供給網をどう確立するか</span>という点にあります。この<span class="strong-highlight">長距離輸送の問題</span>と、<span class="strong-highlight">少量ロットでの輸送費の高さ</span>を克服することが、このプロジェクトの最優先事項となります。</p>
+            
+            <h3>【視覚化】現状のサプライチェーンと課題</h3>
+            <div class="flow-diagram-container">
+                <div class="flow-section-title">現状の非効率なサプライチェーン</div>
+                <div style="display:flex; justify-content:center; align-items:center;">
+                    <div class="flow-box">タイ (生産・加工)</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box">福岡空港 (空輸)</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box">山口県 (一次保管/提携倉庫)</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box" style="border-color: #b91c1c; color: #b91c1c;">関東圏 (店舗・消費地)</div>
+                </div>
+                <div class="flow-section-title" style="color: #b91c1c;">課題の焦点：山口→関東の長距離・高コスト輸送</div>
+            </div>
+
+            <h3>現状のサプライチェーンとコスト課題</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>ステップ</th><th>詳細</th><th>課題点（コスト・ルート）</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>国際輸送</strong></td><td>タイから福岡空港へ空輸後、主に<span class="strong-highlight">冷凍船便</span>で輸送。</td><td><span class="strong-highlight">少量輸送（例: 200kgロット）の場合、輸送費が商品代金の約6割を占める</span>という深刻なコスト課題。</td></tr>
+                        <tr><td><strong>一次保管</strong></td><td>日本国内の起点は<strong>山口県の提携冷凍倉庫</strong>。</td><td><span class="strong-highlight">関東圏への長距離輸送</span>による追加コストとリードタイムの延長が発生。</td></tr>
+                        <tr><td><strong>店舗配送</strong></td><td>関東圏の約30店舗への配送・保管ルートは未確立。</td><td><span class="strong-highlight">東京着地価格</span>でのコストメリット創出が最大の難関。</td></tr>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>物流課題の解決策</h3>
+            <ul class="list-disc list-style text-lg space-y-1">
+                <li><strong class="strong-highlight">コスト課題の解決</strong>：<span class="strong-highlight">年間取引量（ミニマム1トン単位）</span>を早期に確保し、「ボリュームメリット」を追求。</li>
+                <li><strong class="strong-highlight">ルート課題の解決</strong>：サンプル評価後、<span class="strong-highlight">東京着地</span>での概算見積もりを算出し、関東圏内の提携冷凍倉庫を選定・確保し、<span class="strong-highlight">店舗への配送網</span>を迅速に設計します。</li>
+            </ul>
+        </div>
+
+        <!-- Section 7: 供給体制：発注ロットとリードタイム --><div id="section-7" class="document-section">
+            <h1>NO.7 供給体制：発注ロットとリードタイム</h1>
+            <h2>安定供給のための発注計画</h2>
+            <p class="text-lg mb-6">タイ側の生産能力は<span class="strong-highlight">年間約40トンに限定</span>されているため、安定的に供給を受けるには、日本側からの計画的な発注が不可欠です。このセクションでは、カスタムオーダーと小ロット対応の柔軟性を理解し、<span class="strong-highlight">最も効率的でコストを抑えられるサプライチェーン</span>を運用するための指針を示します。</p>
+            
+            <h3>発注オプションとリードタイム（図表）</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>発注オプション</th><th>ロット規模</th><th>リードタイム</th><th>備考</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>カスタムオーダー</strong></td><td><span class="strong-highlight">5トン単位</span>（特定の加工形態、サイズ指定）</td><td><span class="strong-highlight">納期の4〜5ヶ月前</span>のオーダーが必要。</td><td>長期的な需要予測に基づき、コスト効率が最も良い。</td></tr>
+                        <tr><td><strong>小ロット対応</strong></td><td><span class="strong-highlight">1トン単位</span>（メインサイズ 40-50尾）</td><td>生産サイクルに合わせ<span class="strong-highlight">在庫を引き抜く</span>形で対応可能。</td><td>トライアルや初期導入時に柔軟に対応可能。</td></tr>
+                        <tr><td><strong>緊急対応</strong></td><td>山口倉庫の既存在庫から<span class="strong-highlight">少量</span>で対応可能。</td><td>トライアル期間や緊急時に限定。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>推奨される対応策</h3>
+            <!-- 背景色を追加 -->
+            <div class="p-4 rounded-lg" style="background-color: #e6f0ff; border: 1px solid #deeaff;">
+                <p class="text-base">日本側はまずメインサイズでの<span class="strong-highlight">小ロット（1トン〜）</span>の取引で開始し、事業性が確立され次第、<span class="strong-highlight">5トン単位のカスタムオーダー</span>へ移行することで、コスト効率の高い安定供給を図ります。</p>
+            </div>
+        </div>
+
+        <!-- Section 8: 提携の前提条件と相互確認事項 --><div id="section-8" class="document-section">
+            <h1>NO.8 提携の前提条件と相互確認事項</h1>
+            <h2>本格的な事業推進のための相互確認事項</h2>
+            <p class="text-lg mb-6">この提携を成功させ、両社の強みを活かした持続可能な協力関係を築くためには、いくつかの前提条件について相互理解が必要です。ここで確認する合意事項は、<span class="strong-highlight">長期的な信頼関係の基盤</span>となる重要な要素です。</p>
+            
+            <h3>確認事項と合意事項</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>項目</th><th>合意事項</th><th>備考</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>品質の訴求</strong></td><td>国内飲食側はSNSマーケティング力を活用し、「抗生物質不使用」「天然に近い甘み」といった<span class="strong-highlight">品質的優位性を最優先に訴求</span>する。</td><td>単なる安価なエビとしての販売ではなく、高付加価値商品の基本方針。</td></tr>
+                        <tr><td><strong>生食での提供</strong></td><td>日本到着後の菌検査の結果に基づき、<span class="strong-highlight">安全性が確認された上で</span>、生食での提供を検討する。</td><td>安全性を確保するための不可欠なプロセス。検査結果が本格導入の必須条件。</td></tr>
+                        <tr><td><strong>物流・コスト</strong></td><td><span class="strong-highlight">関東への物流ルート確立</span>と、<span class="strong-highlight">ミニマム1トン単位の取引量確保</span>によるボリュームメリットの創出が不可欠。</td><td>事業の収益性を確保するための重要課題。</td></tr>
+                        <tr><td><strong>現場視察</strong></td><td><span class="strong-highlight">来年（2025年）を目途</span>に、生産体制の確認のため、田子・西濱がタイの養殖場を視察する意向がある。</td><td>長期的な協力関係を深化させる機会。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 9: 初期アクションプラン --><div id="section-9" class="document-section">
+            <h1>NO.9 ネクストアクション</h1>
+            <h2>次のステップ：サンプル評価と価格検証</h2>
+            <p class="text-lg mb-6">今回の協議内容を具体的な事業フェーズに進めるため、以下のタスクを<span class="strong-highlight">直ちに実行</span>します。特に、サンプルの品質評価と、東京着地での価格検証は、このプロジェクトの<span class="strong-highlight">次の段階に進むための最も重要な要件</span>です。</p>
+            
+            <h3>初期アクションプラン</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th><strong>優先度</strong></th><th>アクション内容</th><th>担当者</th><th>期限（目安）</th><th>目的</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>高</strong></td><td><span class="strong-highlight">サンプル送付先の住所情報を共有</span></td><td><strong>田子、西濱</strong></td><td>11月上旬</td><td>サンプル発送に向けた準備。</td></tr>
+                        <tr><td><strong>高</strong></td><td><span class="strong-highlight">バナメイエビのサンプル送付</span>（2-3kg）</td><td><strong>田崎氏側</strong></td><td>11月上旬</td><td>西濱による品質評価と商品性の検証。山口倉庫からの緊急供給も可能。</td></tr>
+                        <tr><td><strong>高</strong></td><td><span class="strong-highlight">東京着地での概算見積もり提示</span></td><td><strong>田崎氏側</strong></td><td>11月中旬</td><td>関東圏での物流・倉庫コストを含む現実的な仕入れコストを算出し、事業採算性の検討材料とする。</td></tr>
+                        <tr><td><strong>高</strong></td><td><span class="strong-highlight">サンプル評価</span>と<span class="strong-highlight">フィードバック</span></td><td><strong>西濱</strong></td><td>11月中旬</td><td>メニュー開発への適合性、加工形態（殻むきなど）の要件定義。</td></tr>
+                        <tr><td><strong>中</strong></td><td><span class="strong-highlight">事業性検討</span></td><td><strong>田子、西濱</strong></td><td>11月下旬</td><td>品質・価格・供給体制のバランスを総合的に評価し、本格導入の可否を判断。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>今後のスケジュール感</h3>
+            <ul class="list-disc list-style text-lg space-y-1">
+                <li><span class="strong-highlight">2026年Q1</span>：関東圏での冷凍倉庫確保、山口から関東への物流ルート確立。</li>
+                <li><span class="strong-highlight">2026年Q1-Q2</span>：新メニュー開発と店舗でのトライアル導入。</li>
+                <li><span class="strong-highlight">2026年Q2以降</span>：年間発注量確定と全店舗への本格導入。</li>
+            </ul>
+        </div>
+
+        <!-- Section 10: リスクマネジメント (旧 NO.12) --><div id="section-10" class="document-section">
+            <h1>NO.10 リスクマネジメント</h1>
+            <h2>客観的なリスク評価と発生時の対応策</h2>
+            <p class="text-lg mb-6">本プロジェクトを確実に成功させるため、現時点で想定される主要なリスクを洗い出し、両社で管理体制を築く必要があります。リスクを事前に共有し、具体的な対応策を明確にすることで、<span class="strong-highlight-risk">信頼関係の深化</span>と<span class="strong-highlight-risk">事業の継続性</span>を確保します。</p>
+            
+            <h3>主要リスクと対応策</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>リスクカテゴリー</th><th>潜在的な懸念事項</th><th>リスク管理・対応策</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>品質・安全性リスク</strong></td><td>日本到着後の菌検査で安全基準を<span class="strong-highlight-risk">継続的に満たせない</span>場合、生食訴求が不可能になる。</td><td>タイ側による<span class="strong-highlight-risk">出荷前検査の徹底</span>と、日本側での<span class="strong-highlight-risk">継続的な受入検査</span>を義務化。初期はロットごとに両社で品質を確認。</td></tr>
+                        <tr><td><strong>供給・需給リスク</strong></td><td>日本側の急拡大（年間5〜6店舗増）に対し、タイ側の<span class="strong-highlight-risk">年間40トン限定の生産能力</span>が不足する。</td><td><span class="strong-highlight-risk">納期の4〜5ヶ月前発注をルール化</span>し、生産計画の確実性を担保。限定生産のブランド価値を維持し、欠品時は日本側で代替商材を検討。</td></tr>
+                        <tr><td><strong>コスト・外部環境リスク</strong></td><td>国際的な<span class="strong-highlight-risk">冷凍船便の輸送費高騰</span>や、<span class="strong-highlight-risk">為替変動</span>がコストメリットを相殺する。</td><td><span class="strong-highlight-risk">年間1トン以上の取引量を早期に確定</span>し、ボリュームディスカウントを交渉。為替変動リスクは長期契約時に再交渉条項を設ける。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>プロジェクト総括責任者によるリスク認識</h3>
+            <div class="p-4 mt-6 rounded-lg" style="background-color: #fef2f2; border: 1px solid #fecaca;">
+                <p class="text-sm italic text-gray-700">「高品質なエビの調達は最優先事項であり、物流コスト高は既に織り込み済みである。この品質であれば、<span class="strong-highlight-risk">コストを吸収できるマーケティング力</span>と販売戦略を構築できると確信している。初期のコスト最適化と品質保証体制の確立に全力を注ぐ。」</p>
+            </div>
+        </div>
+
+        <!-- Section 11: 成長戦略：新規商材と海外展開 (旧 NO.10) --><div id="section-11" class="document-section">
+            <h1>NO.11 成長戦略：新規商材と海外展開</h1>
+            <h2>高品質エビの成功を起点とした事業領域の拡大</h2>
+            <p class="text-lg mb-6">今回のバナメイエビの取引を成功させることは、単なる一商材の導入に留まりません。タイ側の持つ<span class="strong-highlight">多様な高品質水産品</span>（ウニ、ソフトシェルクラブ、鮮魚など）を日本市場へ展開する可能性を探るとともに、日本側の<span class="strong-highlight">急成長ノウハウ</span>を活かしたタイ市場への<span class="strong-highlight">共同海外出店</span>も視野に入れます。これは、両社の事業領域を大きく拡大する次なる成長戦略です。</p>
+            
+            <h3>【視覚化】事業拡大の方向性</h3>
+            <div class="flow-diagram-container">
+                <div class="flow-box">フェーズ1: 高品質エビの市場確立</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">フェーズ2: 新規水産品のテスト導入 (ウニ, S.C.)</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box" style="border-color:#1d4ed8;">フェーズ3: <span style="font-weight: 700;">相互シナジー</span>の最大化</div>
+            </div>
+            <div class="flow-diagram-container mt-4">
+                <div class="flow-box">日本側ノウハウ (業態開発・SNS)</div>
+                <span class="flow-arrow">↔</span>
+                <div class="flow-box" style="background-color: #e6f0ff; border-color: #1d4ed8;">共同海外出店 (タイ)</div>
+            </div>
+
+            <h3>新規商材と事業展開の展望（小泉氏の生産品目）</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>ターゲット商材</th><th>特徴</th><th>展開の方向性</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>ウニ（ガンガゼ種）</strong></td><td>特定の餌で養殖されており、品質が安定している。価格は日本市場の約2/3を目指す。</td><td>物流（生鮮流通）の課題解決後、日本市場へ投入。</td></tr>
+                        <tr><td><strong>ソフトシェルクラブ</strong></td><td>冷凍品が主流の市場に対し、<span class="strong-highlight">フレッシュ（生）での流通</span>を計画している。</td><td>新たな物流ルート確立後、高級食材市場への投入を目指す。</td></tr>
+                        <tr><td><strong>鮮魚（スズキ、ハタ）</strong></td><td>現在はタイ国内で<span class="strong-highlight">受注生産</span>のみの取り扱いとなっている。</td><td>日本からの受注量に応じて、輸入の可能性を探る。</td></tr>
+                        <tr><td><strong>海外出店</strong></td><td>バンコク中心部から離れた<span class="strong-highlight">富裕層向けエリア</span>（<strong>ラチャプルック地区</strong>）が有望。</td><td>タイ側と連携し、<span class="strong-highlight">日本食のノウハウ</span>を活かした新業態の共同開発・出店を検討。</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 12: プロジェクト総括と成功に向けた鍵 (旧 NO.11) --><div id="section-12" class="document-section">
+            <h1>NO.12 プロジェクト総括と成功に向けた鍵</h1>
+            <h2>結論：高品質エビによる市場の獲得とプロジェクト成功の鍵</h2>
+            <p class="text-lg mb-6">この商材は、既存の流通品にはない「品質の高さ」と「抗生物質不使用というストーリー性」を持っています。国内飲食事業者側の<span class="strong-highlight">強力な販売力とSNSでの情報発信力</span>と組み合わせることで、<span class="strong-highlight">市場での明確な差別化</span>を果たし、高い利益確保を同時に実現できる可能性が非常に高いです。成功のためには、品質の維持と物流の最適化に両社がコミットすることが重要です。</p>
+            
+            <h3>プロジェクト成功の鍵</h3>
+            <ul class="list-disc list-style text-lg space-y-2">
+                <li><span class="strong-highlight">品質の維持</span>：タイ側はロット数をコントロールし、小泉氏が担う<span class="strong-highlight">高品質生産体制を堅持</span>する。</li>
+                <li><span class="strong-highlight">物流の最適化</span>：日本側は東京着地価格を算出し、関東圏での最適な倉庫・配送網を迅速に設計する。</li>
+                <li><span class="strong-highlight">迅速な導入</span>：サンプルの評価が良好であれば、西濱の権限のもと、来期以降の<span class="strong-highlight">主力商材として迅速な導入</span>を決定する。</li>
+                <li><span class="strong-highlight">将来の展望</span>：エビの取引成功後、新規商材展開やタイ・ラチャプルック地区での<span class="strong-highlight">共同海外出店</span>など、協力領域の拡大を目指す。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer for mobile view spacing --><div class="h-10"></div>
+    
+    <!-- TOPに戻るボタン --><a href="#section-0" class="top-button">TOP</a>
+
+</body>
+</html>
