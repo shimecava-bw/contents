@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バナメイエビ　調達先トラブルと代替仕入れ先協議</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif; background-color: #ffffff; color: #1f2937; line-height: 1.85; font-size: 16.5px; }
+        .layout { display: flex; min-height: 100vh; }
+        .sidebar { width: 280px; flex-shrink: 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; background-color: #f9fafb; border-right: 1px solid #e5e7eb; display: flex; flex-direction: column; padding: 2rem 0 3rem 0; }
+        .sidebar-label { font-size: 0.75rem; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.08em; padding: 0 1.5rem; margin-bottom: 1rem; }
+        .sidebar-links { display: flex; flex-direction: column; }
+        .sidebar-link { display: block; padding: 0.45rem 1.5rem; font-size: 0.86rem; color: #6b7280; text-decoration: none; border-radius: 0.5rem; margin: 0.1rem 0.5rem; transition: background 0.18s, color 0.18s; line-height: 1.4; }
+        .sidebar-link:hover { background-color: #e5e7eb; color: #111827; }
+        .sidebar-link.active { background-color: #ecfdf5; color: #065f46; font-weight: 700; }
+        .sidebar-link.active-red { background-color: #fef2f2; color: #991b1b; font-weight: 700; }
+        .sidebar-link.active-blue { background-color: #eff6ff; color: #1d4ed8; font-weight: 700; }
+        .sidebar-card { margin: 1.5rem 1rem 0 1rem; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 1.1rem 1.25rem; font-size: 0.8rem; color: #6b7280; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .sidebar-card-title { font-weight: 700; color: #1f2937; font-size: 0.9rem; margin-bottom: 0.6rem; }
+        .sidebar-card-row { display: flex; justify-content: space-between; margin-bottom: 0.35rem; }
+        .sidebar-card-row span:last-child { font-weight: 700; color: #1f2937; text-align: right; }
+        .main { flex: 1; padding: 0 4rem 4rem 4rem; min-width: 0; }
+        .page-header { padding: 3.5rem 0 2.5rem 0; margin-bottom: 2.5rem; border-bottom: 1px solid #e5e7eb; }
+        .badge { display: inline-block; padding: 0.2rem 0.75rem; border-radius: 9999px; font-size: 0.84rem; font-weight: 600; background: #f3f4f6; color: #4b5563; margin-bottom: 1rem; letter-spacing: 0.04em; }
+        .page-title { font-size: 2rem; font-weight: 800; color: #111827; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 0.75rem; }
+        .page-subtitle { color: #6b7280; font-size: 1.02rem; }
+        .section-card { background: #ffffff; border-radius: 1rem; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 2rem; padding: 2.5rem; }
+        .section-card.gray-card { background-color: #f9fafb; }
+        .section-head { display: flex; align-items: center; margin-bottom: 1.75rem; }
+        .section-bar { width: 6px; height: 2rem; border-radius: 9999px; margin-right: 1rem; flex-shrink: 0; }
+        .bar-green { background: #059669; }
+        .bar-blue { background: #2563eb; }
+        .bar-red { background: #dc2626; }
+        .bar-gray { background: #6b7280; }
+        .section-title { font-size: 1.35rem; font-weight: 700; color: #111827; }
+        .section-title.green { color: #065f46; }
+        .section-title.blue { color: #1d4ed8; }
+        .section-title.red { color: #dc2626; }
+        .section-title.gray { color: #374151; }
+        .section-intro { color: #6b7280; margin-bottom: 1.5rem; }
+        .sub-heading { font-size: 1.08rem; font-weight: 700; color: #1f2937; margin: 1.75rem 0 0.75rem 0; }
+        .sub-heading:first-child { margin-top: 0; }
+        ul.dot-list { list-style: disc; padding-left: 1.5rem; color: #4b5563; }
+        ul.dot-list li { margin-bottom: 0.6rem; line-height: 1.8; }
+        ul.dot-list li::marker { color: #10b981; }
+        ul.dot-list.red-markers li::marker { color: #ef4444; }
+        .box-green { border-left: 4px solid #10b981; background: #f0fdf4; padding: 1.1rem 1.4rem; margin: 1.25rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+        .box-green .box-label { font-size: 0.86rem; font-weight: 700; color: #065f46; margin-bottom: 0.5rem; }
+        .box-blue { border-left: 4px solid #2563eb; background: #eff6ff; padding: 1.1rem 1.4rem; margin: 1.25rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+        .box-blue .box-label { font-size: 0.86rem; font-weight: 700; color: #1d4ed8; margin-bottom: 0.5rem; }
+        .box-gray { border-left: 4px solid #9ca3af; background: #f9fafb; padding: 1.1rem 1.4rem; margin: 1.25rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+        .box-gray .box-label { font-size: 0.86rem; font-weight: 700; color: #374151; margin-bottom: 0.5rem; }
+        .box-red { border-left: 4px solid #ef4444; background: #fef2f2; padding: 1.1rem 1.4rem; margin: 1.25rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+        .box-red .box-label { font-size: 0.86rem; font-weight: 700; color: #991b1b; margin-bottom: 0.5rem; }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+        .data-table thead th { background: #f9fafb; padding: 0.6rem 1rem; text-align: left; font-weight: 700; color: #374151; border-bottom: 2px solid #e5e7eb; font-size: 0.8rem; }
+        .data-table tbody td { padding: 0.65rem 1rem; border-bottom: 1px solid #f3f4f6; color: #4b5563; vertical-align: top; }
+        .diagram-wrap { margin: 1.5rem 0; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 1.25rem; overflow-x: auto; }
+        .diagram-title { font-size: 0.92rem; font-weight: 700; color: #374151; margin-bottom: 0.9rem; }
+        .flow-row { display: flex; align-items: stretch; gap: 0.5rem; flex-wrap: wrap; }
+        .flow-box { flex: 1 1 150px; border: 1.5px solid #2563eb; background: #eff6ff; border-radius: 0.6rem; padding: 0.75rem 0.9rem; }
+        .flow-box.red { border-color: #ef4444; background: #fef2f2; }
+        .flow-box.green { border-color: #059669; background: #f0fdf4; }
+        .flow-box.gray { border-color: #9ca3af; background: #f9fafb; }
+        .flow-box h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.3rem; color: #1f2937; }
+        .flow-box p { font-size: 0.78rem; color: #4b5563; line-height: 1.5; margin: 0; }
+        .flow-arrow { display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 1.2rem; flex: 0 0 auto; padding: 0 0.15rem; }
+        .flow-note { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 0.6rem; padding: 0.85rem 1.1rem; margin-top: 0.85rem; font-size: 0.8rem; color: #374151; line-height: 1.6; }
+        @media (max-width: 900px) {
+            .layout { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid #e5e7eb; padding: 1.25rem 0 1rem 0; }
+            .sidebar-card { display: none; }
+            .main { padding: 0 1.25rem 3rem 1.25rem; }
+            .page-title { font-size: 1.4rem; }
+            .section-card { padding: 1.5rem; }
+            .sidebar-links { flex-direction: row; flex-wrap: wrap; padding: 0 0.75rem; gap: 0.25rem; }
+            .sidebar-link { margin: 0; padding: 0.3rem 0.7rem; font-size: 0.75rem; }
+            .sidebar-label { padding: 0 1rem; }
+        }
+        @media (max-width: 720px) {
+            .flow-row { flex-direction: column; }
+            .flow-arrow { transform: rotate(90deg); padding: 0.2rem 0; }
+        }
+    </style>
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar">
+        <p class="sidebar-label">INDEX / 目次</p>
+        <div class="sidebar-links">
+            <a href="#s1" class="sidebar-link">1. 会議概要</a>
+            <a href="#s2" class="sidebar-link">2. タイバグループとのトラブルと関係解消の経緯</a>
+            <a href="#s3" class="sidebar-link">3. 代替調達先「ハジャイ」の概要と品質管理</a>
+            <a href="#s4" class="sidebar-link">4. 買主側の懸念と書面化・エビデンスの要求</a>
+            <a href="#s5" class="sidebar-link">5. 供給体制・物流スキームの確認</a>
+            <a href="#s6" class="sidebar-link">6. 契約形態・信頼性の担保に関して</a>
+            <a href="#s7" class="sidebar-link">7. 提出資料・スケジュールと今後の対応</a>
+            <a href="#s8" class="sidebar-link">8. 会議終了後の買主側の本音</a>
+        </div>
+        <div class="sidebar-card">
+            <p class="sidebar-card-title">会議情報</p>
+            <div class="sidebar-card-row"><span>議題:</span><span>エビ調達先変更</span></div>
+            <div class="sidebar-card-row"><span>出席:</span><span>古泉氏・浦氏・西濱・田子</span></div>
+            <div class="sidebar-card-row"><span>形式:</span><span>原文保存版</span></div>
+        </div>
+    </aside>
+
+    <div class="main">
+        <header class="page-header">
+            <span class="badge">SUPPLIER MEETING</span>
+            <h1 class="page-title">バナメイエビ　調達先トラブルと代替仕入れ先協議</h1>
+            <p class="page-subtitle">タイ産バナメイエビ（以下、エビ）サプライチェーン再評価および調達・物流協議　詳細記録</p>
+        </header>
+
+        <!-- 1 会議概要 -->
+        <section id="s1" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-green"></div>
+                <h2 class="section-title green">1. 会議概要</h2>
+            </div>
+
+            <p class="sub-heading">主要議題</p>
+            <ul class="dot-list">
+                <li>タイにおけるバナメイエビ（以下、エビ）調達先（タイバグループ）とのトラブル報告、代替産地（ハジャイ）への変更、物流・検疫・契約スキームの確認、および今後のスケジュール協議。</li>
+            </ul>
+
+            <p class="sub-heading">出席者</p>
+            <p style="color:#4b5563;"><strong>タイ側</strong>　古泉氏／浦氏　　<strong>日本側</strong>　西濱／田子</p>
+        </section>
+
+        <!-- 2 トラブルと関係解消 -->
+        <section id="s2" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-red"></div>
+                <h2 class="section-title red">2. タイバグループとのトラブルと関係解消の経緯</h2>
+            </div>
+
+            <p class="sub-heading">タイ側の説明</p>
+            <ul class="dot-list">
+                <li>最初のアプローチでは「タイバグループ」のエビを使用して商品提供する前提で進んでいたが、タイ現地で問題が生じ、タイバグループからの商品提供が困難な状況となった。</li>
+            </ul>
+
+            <div class="box-red">
+                <p class="box-label">問題の詳細</p>
+                <p style="color:#4b5563; font-size:0.96rem;">合弁会社「海彦」をタイバグループと設立し、エビの輸出および牡蠣・ウニの養殖事業を共同で行っていた。しかし、日本から牡蠣の稚貝を持ち込んで育てていた事業において、タイバグループ側が海彦側に無断で牡蠣を販売したり、事業を取得・占有しようとする動きがあった。具体的には、日本側関係者の資産である牡蠣や養殖用具などが占有されたと説明されている。発覚は6月頃で、事実関係の調査や証拠収集を行っていたため、買主側への報告がこのタイミングまで遅れた。</p>
+            </div>
+
+            <p class="sub-heading">対応と法的措置</p>
+            <ul class="dot-list">
+                <li>今後事業を大きく拡大する計画であったため、現在の状況で共存することは困難と判断した。現在証拠を収集しており、裁判に発展する可能性がある。現在タイバグループが保有する海彦の株式についても、法的措置をとって関係を解消する方針である。</li>
+            </ul>
+
+            <p class="sub-heading">代替地の確保（ハジャイ）</p>
+            <ul class="dot-list">
+                <li>ここ数ヶ月間、代替調達先を模索した結果、タイ南部のマレーシア国境に近い「ハジャイ（Hat Yai）」地区の養殖場を確保した。タイバグループと同等以上のクオリティであり、年間を通して供給可能な体制が取れるため、ハジャイ産へ商品を切り替えたい。</li>
+            </ul>
+
+            <div class="diagram-wrap">
+                <p class="diagram-title">供給元変更の経緯</p>
+                <div class="flow-row">
+                    <div class="flow-box">
+                        <h4>合弁「海彦」設立</h4>
+                        <p>タイバグループとエビ輸出＋牡蠣・ウニ養殖を共同展開</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box red">
+                        <h4>トラブル発覚（6月）</h4>
+                        <p>牡蠣の無断販売・資産占有</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box red">
+                        <h4>証拠収集・法的措置</h4>
+                        <p>裁判の可能性、株式関係の解消手続き</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box green">
+                        <h4>代替地ハジャイ確保</h4>
+                        <p>同等以上の品質、年間供給可能</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="sub-heading">日本側の指摘（買主側の戸惑い）</p>
+            <ul class="dot-list">
+                <li>突然提示された内容であり、状況が理解できず情報として咀嚼できない。</li>
+                <li>前回までの合意内容：月島倉庫までの配送、紹介されたアツミ水産との物流段取り、エビの仕様確認・事前共有、見積もり提出まで完了し、「いざ始めましょう」という直前の段階で止まっていた。</li>
+                <li>今回の話を聞くと「進められない」という事態になっており、信頼関係・信用の担保の上で進んでいた話が振り出しに戻った印象を受ける。現時点でハジャイのエビも見ておらず、どう進めればよいか不明である。</li>
+            </ul>
+        </section>
+
+        <!-- 3 ハジャイ -->
+        <section id="s3" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-blue"></div>
+                <h2 class="section-title blue">3. 代替調達先「ハジャイ」の概要と品質管理</h2>
+            </div>
+
+            <p class="sub-heading">仕様・産地に関するやり取り</p>
+            <ul class="dot-list">
+                <li><strong>日本側：</strong>8月に送られてきたエビはマレーシア産か？また、以前のニュアンスでは季節的に出ない時期の「つなぎ」として使う話だった認識である。エンドユーザー（店舗スタッフ・消費者）が扱うにあたり、トレーサビリティや当初の見積もりとの差異が不透明である。</li>
+                <li><strong>タイ側：</strong>産地はタイ国内のマレーシア国境付近にある「ハジャイ」地区である。現地で養殖場を4箇所所有するオーナーから仕入れる体制を整えている。</li>
+                <li><strong>冷凍形態の違い：</strong>8月に送付したエビは先方の従来品である「ブロック冷凍」であったため物流に適していなかったが、実際の流通時は最初に送った際と同じ「セミIQF（個別に急速冷凍）」の形態で納品できるよう工場を押さえている。</li>
+            </ul>
+
+            <p class="sub-heading">品質・生食可否</p>
+            <ul class="dot-list">
+                <li>養殖場および加工工場において、生食可能であることを示すバクテリアテストに合格したため、クオリティ的には問題ないものが提供できる。インスペクション（検査）データ等の詳細書類は改めて送付する。</li>
+                <li>水揚げ時の管理体制を含め、クオリティ面では従来のタイバグループ品と同等以上の品質が確保できていると説明されている。</li>
+            </ul>
+        </section>
+
+        <!-- 4 書面化要求 -->
+        <section id="s4" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-red"></div>
+                <h2 class="section-title red">4. 買主側の懸念と書面化・エビデンスの要求</h2>
+            </div>
+
+            <p class="sub-heading">日本側の要求</p>
+            <ul class="dot-list red-markers">
+                <li>正式な仕様が分からないと企画書も確認できず、恐ろしくて進められない。</li>
+                <li>エビの違いや仕様、成分・安全性の証明など、全て「文字ベース（書面）」でエビデンスを残す必要がある。口頭でのやり取りは避けるべきである。</li>
+            </ul>
+
+            <p class="sub-heading">日本側の懸念</p>
+            <ul class="dot-list red-markers">
+                <li>タイバ社とのやり取りを前提にスタートしていたため、「誰と取引するのか」「どの会社の何のエビなのか」が整理されないとビジネスとして成り立たない。</li>
+                <li>この数ヶ月間のトラブルが事後報告となったことに対し、信頼関係への不信感・懸念を示した。</li>
+            </ul>
+        </section>
+
+        <!-- 5 物流スキーム -->
+        <section id="s5" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-blue"></div>
+                <h2 class="section-title blue">5. 供給体制・物流スキームの確認</h2>
+            </div>
+
+            <p class="sub-heading">供給と価格（タイ側の補足）</p>
+            <ul class="dot-list">
+                <li>連絡が遅れた点については、6月頃に異常が発覚してから調査を行っており、事実関係が確定するまで外部に出せなかったためであり、深謝する。</li>
+                <li>今回交渉したハジャイの調達先はより大規模な事業者であるため、以前伝えていた「時期による供給制限（欠品期間）」がなくなった。年間を通じた価格変動に関しても有利な条件で設定できるため、改めて値下げを含めた見積もりを提出する。</li>
+            </ul>
+
+            <p class="sub-heading">月島倉庫までの物流ルート</p>
+            <ul class="dot-list">
+                <li>タイからの直行便で東京港に付け、保税倉庫を経由して月島倉庫へ納入する。下関経由ではなく、伝票は海彦側から発行される。</li>
+                <li><strong>運送主体（メイン荷主）：</strong>メイン荷主である「サイアムフローズン（Siam Frozen）」社（タイの旧国名シャムに由来）の20フィート冷凍コンテナの混載スペースを利用する。同社は2ヶ月に1回程度タイから冷凍コンテナを運航させている。</li>
+                <li><strong>発注数量：</strong>コンテナ満載（15トン）ではなく、今回の取引対象は「3.6トン」となる。港到着後の通関・手続きはサイアムフローズン側が実施し、月島倉庫からアツミ水産等への配送手配を進める。</li>
+            </ul>
+
+            <div class="diagram-wrap">
+                <p class="diagram-title">物流ルート</p>
+                <div class="flow-row">
+                    <div class="flow-box">
+                        <h4>ハジャイ（タイ）</h4>
+                        <p>養殖場4箇所所有のオーナーから仕入れ</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">
+                        <h4>サイアムフローズン社</h4>
+                        <p>20フィート冷凍コンテナ（満載15トン中3.6トン混載）。2ヶ月に1回運航</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">
+                        <h4>東京港・保税倉庫</h4>
+                        <p>直行便。通関手続きはサイアムフローズン側</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box green">
+                        <h4>月島倉庫</h4>
+                        <p>伝票は海彦側発行</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box green">
+                        <h4>アツミ水産等</h4>
+                        <p>国内各拠点へ配送</p>
+                    </div>
+                </div>
+                <div class="flow-note">下関経由ではなく東京港直行のルートに変更。サイアムフローズン社との間には固定的な継続契約がなく、手配は「都度（単発）」で行われている。</div>
+            </div>
+        </section>
+
+        <!-- 6 契約形態 -->
+        <section id="s6" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-red"></div>
+                <h2 class="section-title red">6. 契約形態・信頼性の担保に関して</h2>
+            </div>
+
+            <p class="sub-heading">確認された論点</p>
+            <ul class="dot-list red-markers">
+                <li>店舗で商品を提供する以上、事故が発生した際の最終責任は店舗・自社側にかかってくる。</li>
+                <li>当初は個人への人間的信用、および資本関係のある取引先を信用してスタートした経緯があるため、資本関係のない新規事業者との契約関係・計画については、口頭ではなく視覚化・書面化した形で確認したい。</li>
+                <li>納品形態（トレーサビリティシール等）についても、あらためて確認できる形にしておきたい。</li>
+            </ul>
+
+            <p class="sub-heading">契約形態について（都度購入・年間契約）</p>
+            <ul class="dot-list">
+                <li>現在の取扱量（年間約5トン程度）では、年間固定契約ではなく「単発（都度）の売買契約」となっている。ボリュームが確定・増加すれば年間契約へ移行できる見込み。</li>
+                <li>都度購入の場合、他の大口の買主に数量を確保されたり、供給が止まったりするリスクがないか、という懸念が共有された。</li>
+                <li>先方は年間1,000トン近くを生産・出荷しており、主にバンコク郊外の国内市場へ流通させている規模であるため、数量不足で買えなくなる事態は現実的に考えにくい、という説明があった。</li>
+                <li>一方で、海外の取引先であり実態が見えにくい以上、規模感の説明だけでなく、どのような保証・契約が存在するのかを確認できる形にしてほしい、という要望が示された。</li>
+            </ul>
+        </section>
+
+        <!-- 7 スケジュール -->
+        <section id="s7" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-green"></div>
+                <h2 class="section-title green">7. 提出資料・スケジュールと今後の対応</h2>
+            </div>
+
+            <p class="sub-heading">タイ側が約束した提出期限</p>
+            <ul class="dot-list">
+                <li><strong>商品・エビ自体に関するデータ・ドキュメント：</strong>英語表記の修正等を行い、来週中に全資料（成分・バクテリアテスト・仕様等）を提出する。</li>
+                <li><strong>物流スキームおよび全体提案書：</strong>提案の骨子・物流ルート図を整理し、遅くとも連休明け（9月25日〜26日頃、月末まで）に提出する。</li>
+            </ul>
+
+            <p class="sub-heading">日本側の念押し</p>
+            <ul class="dot-list">
+                <li><strong>事業開始時期：</strong>タイ側は「年内（12月まで）のスタート」を希望しているが、提出された資料を確認した上で社内・魚屋への説明や設計を行う必要があり、年末年始の店舗出店ラッシュと重なるため無茶なスケジュールは組めない。</li>
+                <li><strong>リスクと不信感：</strong>海外だからという理由ではなく、情報が非開示のまま進められる不誠実さに不信感がある。万が一、食中毒等の衛生事故が起きれば会社が倒産するリスクがある。食材の流通過程や安全性が担保されない限り、スタートの判断は下せない。</li>
+            </ul>
+
+            <div class="box-blue">
+                <p class="box-label">タイ側の締めくくり</p>
+                <p style="color:#4b5563; font-size:0.96rem;">重ねて謝罪し、海彦側で内容を固め、不安を完全に払拭できる形で資料・物流・スケジュールを整えて提出することを約した。</p>
+            </div>
+
+            <div class="diagram-wrap">
+                <p class="diagram-title">提出スケジュール</p>
+                <div class="flow-row">
+                    <div class="flow-box red">
+                        <h4>6月頃</h4>
+                        <p>トラブル発覚（数ヶ月間非開示）</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">
+                        <h4>本会議</h4>
+                        <p>現状報告・ハジャイへの切替提案</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">
+                        <h4>来週中</h4>
+                        <p>商品データ（成分・バクテリアテスト）提出</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">
+                        <h4>連休明け〜月末</h4>
+                        <p>物流スキーム・全体提案書提出</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box gray">
+                        <h4>年内（12月）</h4>
+                        <p>供給側の希望開始時期／買主側は慎重姿勢</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8 本音 -->
+        <section id="s8" class="section-card gray-card">
+            <div class="section-head">
+                <div class="section-bar bar-gray"></div>
+                <h2 class="section-title gray">8. 会議終了後の買主側の本音</h2>
+            </div>
+            <p class="section-intro">打ち合わせ退出後、日本側の間で交わされたやり取り。</p>
+
+            <div class="box-gray">
+                <ul class="dot-list" style="margin-bottom:0;">
+                    <li>「やばいですね」「あれだけ言っていて準備してこないのは相当まずい」とお互いにあきれ・不満を吐露。</li>
+                    <li><strong>契約に関する深刻な懸念：</strong>ハジャイの会社と年間契約が結べておらず「都度購入（単発買付）」である点について、非常に危険であると認識。契約がない状態では、明日以降に物量がなくなった場合、仕入れが不可能になるリスクがある。</li>
+                    <li><strong>結論的見解：</strong>特別なラインやパートナーシップではなく、「ただ普通の商店・現地市場から買い付けて仕入れているだけ」という状態であり、供給の安定性や権利関係に大きな懸念が残ることを確認した。</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer style="margin-top:4rem; padding:2.5rem 0; border-top:1px solid #e5e7eb; text-align:center; font-size:0.8rem; color:#9ca3af; text-transform:uppercase; letter-spacing:0.1em;">
+            <p>&copy; 2026 Shrimp Sourcing Project. All Rights Reserved.</p>
+        </footer>
+    </div>
+</div>
+
+<script>
+    const links = document.querySelectorAll('.sidebar-link');
+    const sections = document.querySelectorAll('section[id]');
+    const blueSections = ['s3', 's5'];
+    const redSections = ['s2', 's4', 's6'];
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                links.forEach(link => {
+                    link.classList.remove('active', 'active-blue', 'active-red');
+                    if (link.getAttribute('href') === '#' + id) {
+                        if (blueSections.includes(id)) link.classList.add('active-blue');
+                        else if (redSections.includes(id)) link.classList.add('active-red');
+                        else link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.2 });
+    sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
