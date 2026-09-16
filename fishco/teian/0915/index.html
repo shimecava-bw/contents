@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社FISH&amp;CO様 スシロー業務 運用フロー検討メモ</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif; background-color: #ffffff; color: #1f2937; line-height: 1.85; font-size: 16.5px; }
+        .layout { display: flex; min-height: 100vh; }
+        .sidebar { width: 280px; flex-shrink: 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; background-color: #f9fafb; border-right: 1px solid #e5e7eb; display: flex; flex-direction: column; padding: 2rem 0 3rem 0; }
+        .sidebar-label { font-size: 0.75rem; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.08em; padding: 0 1.5rem; margin-bottom: 1rem; }
+        .sidebar-links { display: flex; flex-direction: column; }
+        .sidebar-link { display: block; padding: 0.45rem 1.5rem; font-size: 0.86rem; color: #6b7280; text-decoration: none; border-radius: 0.5rem; margin: 0.1rem 0.5rem; transition: background 0.18s, color 0.18s; line-height: 1.4; }
+        .sidebar-link:hover { background-color: #e5e7eb; color: #111827; }
+        .sidebar-link.active { background-color: #ecfdf5; color: #065f46; font-weight: 700; }
+        .sidebar-link.active-purple { background-color: #f5f3ff; color: #6d28d9; font-weight: 700; }
+        .sidebar-card { margin: 1.5rem 1rem 0 1rem; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 1.1rem 1.25rem; font-size: 0.8rem; color: #6b7280; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .sidebar-card-title { font-weight: 700; color: #1f2937; font-size: 0.9rem; margin-bottom: 0.6rem; }
+        .sidebar-card-row { display: flex; justify-content: space-between; margin-bottom: 0.35rem; }
+        .sidebar-card-row span:last-child { font-weight: 700; color: #1f2937; text-align: right; }
+        .main { flex: 1; padding: 0 4rem 4rem 4rem; min-width: 0; }
+        .page-header { padding: 3.5rem 0 2.5rem 0; margin-bottom: 2.5rem; border-bottom: 1px solid #e5e7eb; }
+        .badge { display: inline-block; padding: 0.2rem 0.75rem; border-radius: 9999px; font-size: 0.84rem; font-weight: 600; background: #f3f4f6; color: #4b5563; margin-bottom: 1rem; letter-spacing: 0.04em; }
+        .page-title { font-size: 2rem; font-weight: 800; color: #111827; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 0.75rem; }
+        .page-subtitle { color: #6b7280; font-size: 1.02rem; }
+        .section-card { background: #ffffff; border-radius: 1rem; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 2rem; padding: 2.5rem; }
+        .section-card.purple-card { background-color: #fcfaff; border: 1px solid #f0e6ff; }
+        .section-head { display: flex; align-items: center; margin-bottom: 1.75rem; }
+        .section-bar { width: 6px; height: 2rem; border-radius: 9999px; margin-right: 1rem; flex-shrink: 0; }
+        .bar-green { background: #111827; }
+        .bar-blue { background: #111827; }
+        .bar-purple { background: #7c3aed; }
+        .bar-gray { background: #111827; }
+        .section-title { font-size: 1.35rem; font-weight: 700; color: #111827; }
+        .section-title.green { color: #111827; }
+        .section-title.blue { color: #111827; }
+        .section-title.purple { color: #6d28d9; }
+        .section-title.gray { color: #111827; }
+        .section-intro { color: #6b7280; margin-bottom: 1.5rem; }
+        .sub-heading { font-size: 1.08rem; font-weight: 700; color: #1f2937; margin: 1.75rem 0 0.75rem 0; }
+        .sub-heading:first-child { margin-top: 0; }
+        ul.dot-list { list-style: disc; padding-left: 1.5rem; color: #4b5563; }
+        ul.dot-list li { margin-bottom: 0.6rem; line-height: 1.8; }
+        ul.dot-list li::marker { color: #111827; }
+        ul.dot-list.purple-markers li::marker { color: #8b5cf6; }
+        .box-red ul.dot-list li::marker { color: #ef4444; }
+        .box-green { border: 1px solid #10b981; background: #f0fdf4; padding: 1.1rem 1.4rem; margin: 1.25rem 0; border-radius: 0.5rem; }
+        .box-green .box-label { font-size: 1.08rem; font-weight: 700; color: #065f46; margin-bottom: 0.5rem; }
+        .box-blue { border: 1px solid #2563eb; background: #eff6ff; padding: 1.1rem 1.4rem; margin: 1.25rem 0; border-radius: 0.5rem; }
+        .box-blue .box-label { font-size: 1.08rem; font-weight: 700; color: #1d4ed8; margin-bottom: 0.5rem; }
+        .box-purple { border: 1px solid #7c3aed; background: #faf5ff; padding: 1.1rem 1.4rem; margin: 1.25rem 0; border-radius: 0.5rem; }
+        .box-purple .box-label { font-size: 1.08rem; font-weight: 700; color: #6d28d9; margin-bottom: 0.5rem; }
+        .box-red { border: 1px solid #ef4444; background: #fef2f2; padding: 1.1rem 1.4rem; margin: 1.25rem 0; border-radius: 0.5rem; }
+        .box-red .box-label { font-size: 1.08rem; font-weight: 700; color: #b91c1c; margin-bottom: 0.5rem; }
+        .box-gray { border: 1px solid #9ca3af; background: #f9fafb; padding: 1.1rem 1.4rem; margin: 1.25rem 0; border-radius: 0.5rem; }
+        .box-gray .box-label { font-size: 1.08rem; font-weight: 700; color: #374151; margin-bottom: 0.5rem; }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+        .data-table thead th { background: #f9fafb; padding: 0.6rem 1rem; text-align: left; font-weight: 700; color: #374151; border-bottom: 2px solid #e5e7eb; font-size: 0.8rem; }
+        .data-table tbody td { padding: 0.65rem 1rem; border-bottom: 1px solid #f3f4f6; color: #4b5563; vertical-align: top; }
+        .diagram-wrap { margin: 1.5rem 0; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 1.25rem; overflow-x: auto; }
+        .diagram-title { font-size: 0.92rem; font-weight: 700; color: #374151; margin-bottom: 0.9rem; }
+        .flow-row { display: flex; align-items: stretch; gap: 0.5rem; flex-wrap: wrap; }
+        .flow-box { flex: 1 1 150px; border: 1.5px solid #2563eb; background: #eff6ff; border-radius: 0.6rem; padding: 0.75rem 0.9rem; }
+        .flow-box.purple { border-color: #7c3aed; background: #faf5ff; }
+        .flow-box.green { border-color: #059669; background: #f0fdf4; }
+        .flow-box.yellow { border-color: #b45309; background: #fffbeb; }
+        .flow-box.red { border-color: #ef4444; background: #fef2f2; }
+        .flow-box h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.3rem; color: #1f2937; }
+        .flow-box p { font-size: 0.78rem; color: #4b5563; line-height: 1.5; margin: 0; }
+        .flow-arrow { display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 1.2rem; flex: 0 0 auto; padding: 0 0.15rem; }
+        .flow-note { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 0.6rem; padding: 0.85rem 1.1rem; margin-top: 0.85rem; font-size: 0.8rem; color: #374151; line-height: 1.6; }
+        .flow-branch-label { text-align: center; font-size: 0.72rem; color: #6b7280; margin: 0.5rem 0; }
+        @media (max-width: 720px) {
+            .flow-row { flex-direction: column; }
+            .flow-arrow { transform: rotate(90deg); padding: 0.2rem 0; }
+        }
+        .page-footer { margin-top: 4rem; padding: 2.5rem 0; border-top: 1px solid #e5e7eb; text-align: center; font-size: 0.8rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; }
+        @media (max-width: 900px) {
+            .layout { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid #e5e7eb; padding: 1.25rem 0 1rem 0; }
+            .sidebar-card { display: none; }
+            .main { padding: 0 1.25rem 3rem 1.25rem; }
+            .page-title { font-size: 1.4rem; }
+            .section-card { padding: 1.5rem; }
+            .sidebar-links { flex-direction: row; flex-wrap: wrap; padding: 0 0.75rem; gap: 0.25rem; }
+            .sidebar-link { margin: 0; padding: 0.3rem 0.7rem; font-size: 0.75rem; }
+            .sidebar-label { padding: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar">
+        <p class="sidebar-label">INDEX / 目次</p>
+        <div class="sidebar-links">
+            <a href="#s1" class="sidebar-link">1. 会議概要</a>
+            <a href="#s2" class="sidebar-link">2. 参考：クライアントごとの権限の違い</a>
+            <a href="#s3" class="sidebar-link">3. 今回浮上した懸念：CODATI直接アクセスへの懸念</a>
+            <a href="#s4" class="sidebar-link">4. 現状の制約：ホストPC・RPA稼働状況</a>
+            <a href="#s5" class="sidebar-link">5. スシロー受付ルールの実態</a>
+            <a href="#s6" class="sidebar-link">6. 理想フロー（案）</a>
+            <a href="#s7" class="sidebar-link">7. 技術的な懸念と設計方針</a>
+            <a href="#s8" class="sidebar-link">8. 今後の検討事項：変更検知アラート</a>
+        </div>
+        <div class="sidebar-card">
+            <p class="sidebar-card-title">会議情報</p>
+            <div class="sidebar-card-row"><span>クライアント:</span><span>株式会社FISH&amp;CO</span></div>
+            <div class="sidebar-card-row"><span>日付:</span><span>2026年9月15日</span></div>
+            <div class="sidebar-card-row"><span>参加者:</span><span>飯田氏・田子・T-go</span></div>
+            <div class="sidebar-card-row"><span>形式:</span><span>社内検討メモ（前回議事録の続編）</span></div>
+        </div>
+    </aside>
+
+    <div class="main">
+        <header class="page-header">
+            <span class="badge">INTERNAL DISCUSSION</span>
+            <h1 class="page-title">株式会社FISH&amp;CO様 スシロー業務 運用フロー検討メモ</h1>
+            <p class="page-subtitle">ホストPC経由でのスシロー業務運用フローと、CODATI連携における懸念点の整理</p>
+        </header>
+
+        <!-- 1 会議概要 -->
+        <section id="s1" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-green"></div>
+                <h2 class="section-title green">1. 会議概要</h2>
+            </div>
+
+            <p class="sub-heading">背景</p>
+            <p>前回議事録の時点では、スシローのGoogle Workspaceスプレッドシートについて、CODATIが直接データを取得しに行く設計で検討されていましたが、その後、直接アクセスすることに懸念が浮上し、方針の見直しを進めています。</p>
+        </section>
+
+        <!-- 2 参考：クライアントごとの権限の違い -->
+        <section id="s2" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-gray"></div>
+                <h2 class="section-title gray">2. 参考：クライアントごとの権限の違い</h2>
+            </div>
+            <p class="section-intro">前回議事録より抜粋します。今回の懸念（CODATI直接アクセスの是非）の背景理解に必要な、スシロー・ステーキのあさくま（以下、あさくま）2社分の情報のみを参考として掲載します。</p>
+
+            <div class="box-gray">
+                <p class="box-label">参考：前回議事録セクション2より抜粋</p>
+                <div style="overflow-x:auto;">
+                    <table class="data-table" style="margin-bottom:0;">
+                        <thead><tr><th>クライアント名</th><th>契約・権限形態</th><th>主な業務範囲</th><th>使用システム・ツール等</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>スシロー</strong></td><td>日本アクセス（問屋）との契約（直接契約なし）。与えられた特定の仕事のみ</td><td>在庫管理は行わない。出荷指示データの作成、欠品に伴う手配メール送信、サンプル手配、追加対応</td><td>e-winds、アイブリー（コールセンター文字起こし・IP電話）</td></tr>
+                            <tr><td><strong>あさくま</strong></td><td>直接契約。月額固定＋追加発注は1件ずつの従量課金制</td><td>ミニ商品部（商品調達部門）として1から10まで丸ごと代行。欠品対応、在庫管理、メーカー手配、商品マスター登録・更新、店舗やメーカーからのクレーム解決</td><td>アスピット（店舗発注システム）、e-winds（日本アクセスの在庫管理システム）、<strong>ASIMOV ROBOTS</strong>（あさくま専用の伝票作成ロボット）</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 今回浮上した懸念 -->
+        <section id="s3" class="section-card purple-card">
+            <div class="section-head">
+                <div class="section-bar bar-purple"></div>
+                <h2 class="section-title purple">3. 今回浮上した懸念：CODATI直接アクセスへの懸念</h2>
+            </div>
+            <ul class="dot-list purple-markers">
+                <li>FISH&amp;COは日本アクセスの業務の一部を受けている位置づけであり、スシローとの関係では日本アクセス側の立場にあるため、CODATIの仕組みから直接スシローのスプレッドシートを確認することには懸念や弊害があります。</li>
+                <li>前回議事録時点の設計（CODATIが直接データを取りに行く方針）を見直し、<strong>ホストPCを経由する方式</strong>に変更する方向で検討中です。技術的にはCODATIとスシローのスプレッドシートが直接つながる形が理想ですが、今回はあえて迂回し、ホストPCを噛ませる形にします。</li>
+            </ul>
+        </section>
+
+        <!-- 4 現状の制約 -->
+        <section id="s4" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-blue"></div>
+                <h2 class="section-title blue">4. 現状の制約：ホストPC・RPA稼働状況</h2>
+            </div>
+
+            <p class="sub-heading">ホストPCの現状</p>
+            <ul class="dot-list">
+                <li>今現在、あさくま用にホストPC（ノートPC）を導入し、RPAの仕組み（ASIMOV ROBOTS：あさくま専用の伝票作成ロボット）を入れており、このRPAの動作を損なわないことがマストです。</li>
+                <li>ASIMOV ROBOTS（RPA）の稼働時間帯は確認中です（AM10時〜PM12時は、社員があさくま向け業務に対応している時間帯です）。</li>
+                <li>今後、レッドロブスターもこのホストPCにてRPAを導入予定。</li>
+            </ul>
+
+            <div class="box-blue">
+                <p class="box-label">他クライアントへの配慮</p>
+                <p>このホストPCは、あさくま・レッドロブスターの業務のために導入されたものであり、そこにスシロー業務の仕組みを新たに乗せる形になるため、スシロー業務のためのデータ取得処理があさくま専用のASIMOV ROBOTSおよび今後導入予定のレッドロブスター用RPAの稼働に一切影響を与えないことを、両社への信頼性を担保する設計上の必須条件とします。</p>
+            </div>
+        </section>
+
+        <!-- 5 スシロー受付ルールの実態 -->
+        <section id="s5" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-blue"></div>
+                <h2 class="section-title blue">5. スシロー受付ルールの実態</h2>
+            </div>
+            <p>本来のルール上、スシローからの発注やサンプル依頼受付の最終時間は16時までとしています。時間を区切らないと、受付後の自社業務に支障が出るためです。</p>
+
+            <div class="box-red">
+                <p class="box-label">実態とのギャップ</p>
+                <p>実際はスシロー側の要望を聞いてあげているため18時までなら個別で対応してしまっており、これが自社業務への「しわ寄せ」になっています。</p>
+            </div>
+
+            <div class="box-green">
+                <p class="box-label">今回の取り組みの目的</p>
+                <p>本来の受付ルール（16時締切）自体は維持しつつ、16時以降に届く分についても、これまでのような人的な個別対応（〜18時）ではなく、スプレッドシート確認から伝票作成までを自動化することで、他業務への支障（しわ寄せ）をなくすことが、今回の運用フロー見直しの重要な目的の一つです。</p>
+            </div>
+        </section>
+
+        <!-- 6 理想フロー -->
+        <section id="s6" class="section-card">
+            <div class="section-head">
+                <div class="section-bar bar-green"></div>
+                <h2 class="section-title green">6. 理想フロー（案）</h2>
+            </div>
+            <ul class="dot-list">
+                <li>受付ルールは、本来通り16時までとします。</li>
+                <li>あさくまのメイン業務終了後（12時以降）、スプレッドシートを定期的に確認します。頻度は未確定です。</li>
+                <li>16時以降もスシロー側でスプレッドシートが更新される可能性があるため、確認自体は継続します。実務が終わる18時まで確認するか、スシロー側はいつでも入力できるため、さらに遅い時間まで確認を続けるかは検討中です。</li>
+                <li>確認した内容をもとに、10時からの目視チェックに間に合うよう、翌朝9時までに自動で伝票を作成できていればよいと考えています。</li>
+            </ul>
+
+            <div class="diagram-wrap">
+                <p class="diagram-title">理想フロー（案）タイムライン</p>
+                <div class="flow-row">
+                    <div class="flow-box green">
+                        <h4>12時〜16時</h4>
+                        <p>スプレッドシートを定期的に確認（頻度は検討中）</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">
+                        <h4>16時</h4>
+                        <p>受付ルール上の締切（本来通り）</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box yellow">
+                        <h4>16時〜18時（またはそれ以降）</h4>
+                        <p>スシロー側の更新に対しても確認を継続（終了時刻は検討中）</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box purple">
+                        <h4>確認終了後〜翌9時</h4>
+                        <p>自動で伝票作成</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box green">
+                        <h4>翌9時まで</h4>
+                        <p>担当者による目視チェック開始（10時）までに完了</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-red">
+                <p class="box-label">検討事項① スプレッドシート確認の実行タイミング・頻度</p>
+                <ul class="dot-list" style="margin-bottom:0;">
+                    <li>あさくまの実務時間はAM10時〜PM12時です。ASIMOV ROBOTSの稼働時間帯は確認中のため、12時以降であれば確実に重ならないとは言い切れません。稼働時間帯が判明次第、あらためて確認します。</li>
+                    <li>12時以前についても、RPAと同時実行して支障がなければ動かすのが理想ですが、それとも安全策として12時〜16時の4時間に絞るべきか、方針は未確定です。</li>
+                    <li>確認の頻度も未確定ですが、1時間おきに確認できるとよいのではという案が出ています。</li>
+                </ul>
+            </div>
+
+            <div class="box-red">
+                <p class="box-label">検討事項② スプレッドシート確認の終了時刻（16時以降の扱い）</p>
+                <ul class="dot-list" style="margin-bottom:0;">
+                    <li>受付ルール自体は本来通り16時までとする方針です。</li>
+                    <li>16時以降もスシロー側はいつでもスプレッドシートを更新（打ち込み）できるため、確認処理自体をどこまで継続するかが論点です。</li>
+                    <li>実務が終わる18時までとするか、それ以降も継続するかは未確定です。</li>
+                    <li>伝票作成自体はコダチが自動で行うため、終了時刻を遅くしても人的な処理能力の問題は生じません。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 7 技術的な懸念と設計方針 -->
+        <section id="s7" class="section-card purple-card">
+            <div class="section-head">
+                <div class="section-bar bar-purple"></div>
+                <h2 class="section-title purple">7. 技術的な懸念と設計方針</h2>
+            </div>
+
+            <p class="sub-heading">① RPAとの物理的な衝突回避</p>
+            <ul class="dot-list purple-markers">
+                <li>ホストPC上でスシローのスプレッドシートを取得する処理は、ASIMOV ROBOTS（有料のRPA。追加利用は料金が発生します）とは別方式、つまり画面操作を伴わないバックグラウンドでの取得処理として行います。</li>
+                <li>画面操作を伴わないため、ASIMOV ROBOTSの稼働状況に左右されず、今後導入予定のレッドロブスター用RPAとも独立して動作します。</li>
+            </ul>
+
+            <div class="box-red">
+                <p class="box-label">検討事項③ RPAとの物理的な非衝突は設計上の想定であり、実機検証はこれから</p>
+                <ul class="dot-list" style="margin-bottom:0;">
+                    <li>上記の「画面操作を伴わないためASIMOV ROBOTSと衝突しない」という整理は、一般的なRPAの技術的な特性をもとにした設計上の想定です。</li>
+                    <li>実際にホストPC上で両方の処理を同時に動かした場合に、CPU・メモリ等のリソース面で問題が生じないかは、まだ実機での検証を行っていません。</li>
+                </ul>
+            </div>
+
+            <p class="sub-heading">② コダチとスプレッドシートの非接続</p>
+            <ul class="dot-list purple-markers">
+                <li>コダチは、スシローのスプレッドシートに対して直接の接続経路を一切持ちません。接点はホストPC上の取得処理のみで、この処理も読み取り専用です。</li>
+                <li>コダチが扱うのは、ホストPCが取得済みのデータのみであり、スシローのスプレッドシートそのものへ影響を及ぼす手段は構造上存在しません。</li>
+            </ul>
+
+            <p class="sub-heading">③ 削除・入力ミスとの切り分け</p>
+            <ul class="dot-list purple-markers">
+                <li>スシロー側では、担当者によるメーカー・コード番号等の削除や入力ミスが実務上発生することがあります。</li>
+                <li>こうした削除・入力ミス等は担当者による手動操作に起因するものであり、ホストPC・コダチの取得処理とは完全に独立しています。取得処理は読み取り専用のため、書き込み・編集・削除の操作自体を行うことができません。</li>
+            </ul>
+
+            <div class="box-red">
+                <p class="box-label">④ 共通ID・PASS運用の課題（要検討）</p>
+                <ul class="dot-list" style="margin-bottom:0;">
+                    <li>現在、社員はスシローから承認された「フィッシュアンドコー専用の共通ID・PASS」でログインしています。</li>
+                    <li>ホストPCの取得処理も同じ共通IDを使う場合、操作ログ上「人間の操作か、自動取得か」の判別が難しくなる可能性があります。</li>
+                    <li>監督・可視性を確保する観点から、取得処理専用のアカウントを別途発行する、あるいは共通IDのまま運用する場合は「この時間帯はホストPCの自動取得」という記録を残す等、対応方法を検討する必要があります。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 8 今後の検討事項：変更検知アラート -->
+        <section id="s8" class="section-card purple-card">
+            <div class="section-head">
+                <div class="section-bar bar-purple"></div>
+                <h2 class="section-title purple">8. 今後の検討事項：変更検知アラート（提案）</h2>
+            </div>
+            <ul class="dot-list purple-markers">
+                <li>ホストPCが、取得したスシローのデータについて通常時との差分（想定外の削除・変更等）を検知し、異常があればアラートを生成します。</li>
+                <li>コダチは、このアラートをホストPC経由で取得し、案件対応に反映します。</li>
+                <li>検知処理・取得処理はすべてホストPC側で完結しており、コダチが直接スシローのスプレッドシートにアクセスすることはありません。</li>
+            </ul>
+
+            <div class="diagram-wrap">
+                <p class="diagram-title">変更検知アラートのフロー（案）</p>
+                <div class="flow-row">
+                    <div class="flow-box">
+                        <h4>スシローのスプレッドシート</h4>
+                        <p>通常と異なる書き方・削除等が発生</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box purple">
+                        <h4>ホストPC</h4>
+                        <p>差分を検知しアラート生成</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box purple">
+                        <h4>コダチ</h4>
+                        <p>アラートを取得し案件対応に反映</p>
+                    </div>
+                </div>
+                <div class="flow-note">検知処理はホストPC側で完結し、コダチは検知結果（アラート）のみを受け取ります。「本来あるべき姿」の定義方法（前回取得データとの差分検知か、あらかじめ定義したルールとの照合か）は今後の詳細検討事項です。</div>
+            </div>
+
+            <div class="box-green">
+                <p class="box-label">スシロー側にとってのメリット</p>
+                <p>この仕組みがあることで、スシロー側で入力ミスや削除等が起きた場合にも早期に発見・対応できるようになります。バックグラウンドで読みに行っているだけの仕組みですが、通常と異なる状態を検知できるため、スシロー側にとってもメリットのある提案です。</p>
+            </div>
+        </section>
+
+        <footer class="page-footer">
+            <p>&copy; 2026 FISH&amp;CO Project. All Rights Reserved.</p>
+        </footer>
+    </div>
+</div>
+
+<script>
+    const links = document.querySelectorAll('.sidebar-link');
+    const sections = document.querySelectorAll('section[id]');
+    const purpleSections = ['s3', 's7', 's8'];
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                links.forEach(link => {
+                    link.classList.remove('active', 'active-purple');
+                    if (link.getAttribute('href') === '#' + id) {
+                        if (purpleSections.includes(id)) link.classList.add('active-purple');
+                        else link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.2 });
+    sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
