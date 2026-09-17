@@ -22,7 +22,7 @@
         .main { flex: 1; padding: 0 4rem 4rem 4rem; min-width: 0; }
         .page-header { padding: 3.5rem 0 2.5rem 0; margin-bottom: 2.5rem; border-bottom: 1px solid #e5e7eb; }
         .badge { display: inline-block; padding: 0.2rem 0.75rem; border-radius: 9999px; font-size: 0.84rem; font-weight: 600; background: #f3f4f6; color: #4b5563; margin-bottom: 1rem; letter-spacing: 0.04em; }
-        .badge-new { display: inline-block; padding: 0.15rem 0.65rem; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; background: #111827; color: #ffffff; margin-left: 0.75rem; letter-spacing: 0.02em; vertical-align: middle; }
+        .badge-new { display: inline-block; padding: 0.15rem 0.65rem; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; background: #ef4444; color: #ffffff; margin-left: 0.75rem; letter-spacing: 0.02em; vertical-align: middle; }
         .page-title { font-size: 2rem; font-weight: 800; color: #111827; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 0.75rem; }
         .page-subtitle { color: #6b7280; font-size: 1.02rem; }
         .section-card { background: #ffffff; border-radius: 1rem; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 2rem; padding: 2.5rem; }
@@ -101,9 +101,9 @@
             <a href="#s2" class="sidebar-link">2. 参考：クライアントごとの権限の違い</a>
             <a href="#s3" class="sidebar-link">3. 今回浮上した懸念：CODATI直接アクセスへの懸念</a>
             <a href="#s4" class="sidebar-link">4. 現状の制約：ホストPC・RPA稼働状況</a>
-            <a href="#s5" class="sidebar-link">5. スシロー受付ルールの実態</a>
+            <a href="#s5" class="sidebar-link">5. スシローの受付ルールと現状</a>
             <a href="#s6" class="sidebar-link">6. 新規要望：サンプル依頼作業の時間ルール</a>
-            <a href="#s7" class="sidebar-link">7. 理想フロー（案）</a>
+            <a href="#s7" class="sidebar-link">7. 想定フロー（案）</a>
             <a href="#s8" class="sidebar-link">8. 技術的な懸念と設計方針</a>
             <a href="#s9" class="sidebar-link">9. 今後の検討事項：変更検知アラート</a>
         </div>
@@ -181,20 +181,25 @@
                 <li>ASIMOV ROBOTSの稼働は「巡回」（0時・4時・8時・12時・16時・20時の4時間おき、システムが正常に動いているかの監視）と「実働」（AM9時〜9時半、伝票作成そのもの）の2種類があることが判明しました。</li>
                 <li>AM10時〜PM12時は、社員があさくま向け業務に対応している時間帯です。</li>
                 <li>今後、レッドロブスターもこのホストPCにてRPAを導入予定。</li>
-                <li>※レッドロブスター用RPAを導入した場合、実働時間帯はAM11時〜11時半（30分）となる見込みです。</li>
             </ul>
+            <p style="color:#6b7280; font-size:0.86rem; margin-top:-0.4rem;">※レッドロブスター用RPAを導入した場合、実働時間帯はAM11時〜11時半（30分）となる見込みです。</p>
 
             <div class="box-blue">
                 <p class="box-label">他クライアントへの配慮</p>
                 <p>このホストPCは、あさくま・レッドロブスターの業務のために導入されたものであり、そこにスシロー業務の仕組みを新たに乗せる形になるため、スシロー業務のためのデータ取得処理があさくま専用のASIMOV ROBOTSおよび今後導入予定のレッドロブスター用RPAの稼働に一切影響を与えないことを、両社への信頼性を担保する設計上の必須条件とします。</p>
             </div>
+
+            <div class="box-red">
+                <p class="box-label">不具合の発生について</p>
+                <p>本日（2026年9月18日）、ASIMOV ROBOTSの巡回機能で不具合が発生した模様です。詳細は確認中のため、原因が判明次第あらためて共有します。</p>
+            </div>
         </section>
 
-        <!-- 5 スシロー受付ルールの実態 -->
+        <!-- 5 スシローの受付ルールと現状 -->
         <section id="s5" class="section-card">
             <div class="section-head">
                 <div class="section-bar bar-blue"></div>
-                <h2 class="section-title blue">5. スシロー受付ルールの実態</h2>
+                <h2 class="section-title blue">5. スシローの受付ルールと現状</h2>
             </div>
             <p>本来のルール上、スシローからの発注やサンプル依頼受付の最終時間は16時までとしています。時間を区切らないと、受付後の自社業務に支障が出るためです。</p>
 
@@ -238,7 +243,7 @@
         <section id="s7" class="section-card">
             <div class="section-head">
                 <div class="section-bar bar-green"></div>
-                <h2 class="section-title green">7. 理想フロー（案）</h2>
+                <h2 class="section-title green">7. 想定フロー（案）</h2>
             </div>
             <ul class="dot-list">
                 <li>受付ルールは、本来通り16時までとします。</li>
@@ -248,7 +253,7 @@
             </ul>
 
             <div class="diagram-wrap">
-                <p class="diagram-title">理想フロー（案）タイムライン</p>
+                <p class="diagram-title">想定フロー（案）タイムライン</p>
                 <div class="flow-row">
                     <div class="flow-box green">
                         <h4>12時〜16時</h4>
@@ -373,7 +378,6 @@
         </section>
 
         <footer class="page-footer">
-            <p class="footnote">※本日（2026年9月18日）、ASIMOV ROBOTSの巡回機能で不具合が発生した模様です。詳細は確認中のため、原因が判明次第あらためて共有します。</p>
             <p class="copyright">&copy; 2026 FISH&amp;CO Project. All Rights Reserved.</p>
         </footer>
     </div>
