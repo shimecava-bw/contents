@@ -13,11 +13,11 @@
   .h2 { font-family: 'Zen Kaku Gothic Antique', sans-serif; font-weight: 900; font-size: 48px; color: #1a1a1a; margin-bottom: 56px; }
   .wrap { max-width: 1000px; margin: 0 auto; padding: 0 60px; }
   .ph { background: repeating-linear-gradient(135deg,#eee,#eee 16px,#f5f5f3 16px,#f5f5f3 32px); display:flex; align-items:center; justify-content:center; color:#aaa; font-size:11px; }
-  @keyframes splashOut { 0%{opacity:1;visibility:visible;} 70%{opacity:1;visibility:visible;} 100%{opacity:0;visibility:hidden;} }
-  @keyframes heroIn { 0%{opacity:0;} 75%{opacity:0;} 100%{opacity:1;} }
+  @keyframes splashOut { 0%{opacity:1;visibility:visible;} 20%{opacity:1;visibility:visible;} 100%{opacity:0;visibility:hidden;} }
+  @keyframes heroIn { 0%{opacity:0;} 20%{opacity:0;} 100%{opacity:1;} }
   @keyframes arrowBounce { 0%,100%{transform:translate(-50%,0);} 50%{transform:translate(-50%,8px);} }
-  .splash { animation: splashOut 2.6s ease forwards; }
-  .heroContent { animation: heroIn 2.6s ease forwards; }
+  .splash { animation: splashOut 5s ease forwards; }
+  .heroContent { animation: heroIn 5s ease forwards; }
   .arrow { animation: arrowBounce 1.6s ease-in-out infinite; }
   @keyframes marqueeLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   @keyframes marqueeRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
@@ -78,8 +78,8 @@
     #company table tr { display: block !important; margin-bottom: 12px !important; }
     #company img[alt=""] { display: none !important; }
 
-    .igGrid { flex-wrap: wrap !important; }
-    .igGrid .ph { width: 30% !important; height: auto !important; aspect-ratio: 1; }
+    .igGrid { grid-template-columns: repeat(4, 1fr) !important; }
+    .igGrid .ph { width: 100% !important; height: auto !important; aspect-ratio: 1; }
 
     .siteFooter { flex-direction: column !important; gap: 14px !important; text-align: center !important; padding: 28px 20px !important; }
     .footerLinks { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 16px !important; }
@@ -145,7 +145,7 @@
   <div style="background:#faf9f5;padding:140px 0;position:relative;overflow:hidden;">
     <div class="wrap" style="position:relative;">
       <div class="bgLabel" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:900;font-size:160px;color:#ffffff;letter-spacing:.04em;line-height:1;margin-bottom:-70px;white-space:nowrap;">PROBLEMS</div>
-      <div class="h2" style="position:relative;margin-bottom:80px;font-size:64px;">こんな<span style="color:#c9171e;">お悩み</span>、ありませんか？</div>
+      <div class="h2" style="position:relative;margin-bottom:80px;font-size:52px;">こんな<span style="color:#c9171e;">お悩み</span>、ありませんか？</div>
       <div class="problemsGrid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
         <div style="background:#fff;border-radius:14px;padding:48px 40px;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
           <div style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:22px;color:#1a1a1a;margin-bottom:16px;">商品化までの壁</div>
@@ -178,8 +178,8 @@
     <div style="position:absolute;bottom:0;left:0;width:26%;height:20%;opacity:0.07;pointer-events:none;background-image:url('data:image/svg+xml;utf8,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2276%22 viewBox=%220 0 44 76%22&gt;&lt;path d=%22M22.00 3.00 L41.36 14.00 L41.36 36.00 L22.00 47.00 L2.64 36.00 L2.64 14.00 Z%22 fill=%22none%22 stroke=%22%231a1a1a%22 stroke-width=%222.6%22 stroke-linejoin=%22miter%22/&gt;&lt;/svg&gt;');background-repeat:repeat;-webkit-mask-image:radial-gradient(circle at bottom left, black 0%, black 45%, transparent 85%);mask-image:radial-gradient(circle at bottom left, black 0%, black 45%, transparent 85%);"></div>
     <div class="wrap" style="position:relative;">
       <div class="bgLabel" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:900;font-size:160px;color:#f9f8f5;letter-spacing:.04em;line-height:1;margin-bottom:-70px;white-space:nowrap;">STRENGTH</div>
-      <div class="h2" style="position:relative;margin-bottom:28px;font-size:64px;">想いを、<span style="color:#316745;">かたちにする力。</span></div>
-      <p class="strengthLead" style="margin:0 0 72px;font-size:26px;font-weight:500;line-height:1.7;color:#444;">企画・メニュー開発・デザイン、それぞれを別の会社に頼む必要はありません。<strong style="color:#316745;">ひとつの窓口</strong>で、商品が完成するまで伴走します。</p>
+      <div class="h2" style="position:relative;margin-bottom:28px;font-size:52px;">想いを、<span style="color:#316745;">かたちにする力。</span></div>
+      <p class="strengthLead" style="margin:0 0 72px;font-size:20px;font-weight:500;line-height:1.7;color:#444;">企画・メニュー開発・デザイン、それぞれを別の会社に頼む必要はありません。<strong style="color:#316745;">ひとつの窓口</strong>で、商品が完成するまで伴走します。</p>
       <div class="strengthRow" style="display:flex;align-items:center;gap:48px;margin-bottom:88px;">
         <img class="strengthImg" src="assets/167bed3147f0f68dfbe4db64d2d40a7d.jpg" alt="企画・メニュー開発" style="width:480px;height:360px;border-radius:8px;flex-shrink:0;object-fit:cover;">
         <div><div style="width:32px;height:4px;background:#316745;margin-bottom:20px;"></div>
@@ -216,19 +216,21 @@
     (function(){
       var lb = document.getElementById('lightbox');
       var lbImg = document.getElementById('lightboxImg');
-      document.querySelectorAll('.worksTile').forEach(function(img){
-        img.addEventListener('click', function(){
+      document.addEventListener('click', function(e){
+        var img = e.target.closest ? e.target.closest('.worksTile') : null;
+        if (img) {
           lbImg.src = img.src;
           lbImg.alt = img.alt;
           lb.style.display = 'flex';
-        });
-      });
-      lb.addEventListener('click', function(){
-        lb.style.display = 'none';
-        lbImg.src = '';
+          return;
+        }
+        if (e.target === lb) {
+          lb.style.display = 'none';
+          lbImg.src = '';
+        }
       });
     })();
-  </script><div id="works" style="padding:88px 0;position:relative;overflow:hidden;">
+  </script><div id="works" style="padding:88px 0;position:relative;overflow:hidden;border-top:1px solid #eee;">
     <div style="position:relative;padding:0 60px;margin-bottom:40px;height:200px;">
       <div class="bgLabel" style="position: absolute; top: -9px; left: -13px; font-family: 'Zen Kaku Gothic Antique',sans-serif; font-weight: 900; font-size: 160px; color: #f8f7f3; letter-spacing: .06em; white-space: nowrap; line-height: 1">ARCHIVE</div>
       <div class="worksTitle" style="position:absolute;bottom:8px;left:60px;font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:900;font-size:72px;color:#1a1a1a;letter-spacing:.02em;">WORKS</div>
@@ -262,42 +264,42 @@
   <div style="background:#faf9f5;padding:100px 0 140px;position:relative;overflow:hidden;">
     <div class="wrap" style="position:relative;">
       <div class="bgLabel" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:900;font-size:160px;color:#ffffff;letter-spacing:.04em;line-height:1;margin-bottom:-70px;white-space:nowrap;">FLOW</div>
-      <div class="h2" style="position:relative;margin-bottom:88px;font-size:68px;">アイデアが、<span style="color:#c9171e;">お店に並ぶ</span>まで</div>
+      <div class="h2" style="position:relative;margin-bottom:52px;font-size:54px;">アイデアが、<span style="color:#c9171e;">お店に並ぶ</span>まで</div>
       <div style="position:relative;">
         <div style="position:absolute;left:48px;top:62px;bottom:62px;width:1px;background:#ddd;z-index:0;"></div>
         <div class="flowRow" style="display:flex;gap:44px;align-items:center;padding:36px 0;border-bottom:1px solid #eee;position:relative;z-index:1;">
-          <div class="flowNum" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:60px;color:#316745;letter-spacing:.05em;flex-shrink:0;width:96px;background:#faf9f5;">01</div>
+          <div class="flowNum" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:44px;color:#316745;letter-spacing:.05em;flex-shrink:0;width:72px;background:#faf9f5;">01</div>
           <div>
-            <div style="font-weight:700;font-size:32px;color:#1a1a1a;margin-bottom:14px;">ヒアリング</div>
-            <p style="margin:0;font-size:20px;color:#777;line-height:1.9;">お店のコンセプトや課題、実現したい味をお聞きします。</p>
+            <div style="font-weight:700;font-size:24px;color:#1a1a1a;margin-bottom:12px;">ヒアリング</div>
+            <p style="margin:0;font-size:16px;color:#777;line-height:1.9;">お店のコンセプトや課題、実現したい味をお聞きします。</p>
           </div>
         </div>
         <div class="flowRow" style="display:flex;gap:44px;align-items:center;padding:36px 0;border-bottom:1px solid #eee;position:relative;z-index:1;">
-          <div class="flowNum" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:60px;color:#316745;letter-spacing:.05em;flex-shrink:0;width:96px;background:#faf9f5;">02</div>
+          <div class="flowNum" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:44px;color:#316745;letter-spacing:.05em;flex-shrink:0;width:72px;background:#faf9f5;">02</div>
           <div>
-            <div style="font-weight:700;font-size:32px;color:#1a1a1a;margin-bottom:14px;">メニュー開発</div>
-            <p style="margin:0;font-size:20px;color:#777;line-height:1.9;">試作を重ねながら、原価・レシピ・オペレーションまで仕上げていきます。</p>
+            <div style="font-weight:700;font-size:24px;color:#1a1a1a;margin-bottom:12px;">メニュー開発</div>
+            <p style="margin:0;font-size:16px;color:#777;line-height:1.9;">試作を重ねながら、原価・レシピ・オペレーションまで仕上げていきます。</p>
           </div>
         </div>
         <div class="flowRow" style="display:flex;gap:44px;align-items:center;padding:36px 0;border-bottom:1px solid #eee;position:relative;z-index:1;">
-          <div class="flowNum" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:60px;color:#316745;letter-spacing:.05em;flex-shrink:0;width:96px;background:#faf9f5;">03</div>
+          <div class="flowNum" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:44px;color:#316745;letter-spacing:.05em;flex-shrink:0;width:72px;background:#faf9f5;">03</div>
           <div>
-            <div style="font-weight:700;font-size:32px;color:#1a1a1a;margin-bottom:14px;">仕入れ先の選定</div>
-            <p style="margin:0;font-size:20px;color:#777;line-height:1.9;">安定して仕入れられる食材・業者を選び、無理のない調達ルートを整えます。</p>
+            <div style="font-weight:700;font-size:24px;color:#1a1a1a;margin-bottom:12px;">仕入れ先の選定</div>
+            <p style="margin:0;font-size:16px;color:#777;line-height:1.9;">安定して仕入れられる食材・業者を選び、無理のない調達ルートを整えます。</p>
           </div>
         </div>
         <div class="flowRow" style="display:flex;gap:44px;align-items:center;padding:36px 0;border-bottom:1px solid #eee;position:relative;z-index:1;">
-          <div class="flowNum" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:60px;color:#316745;letter-spacing:.05em;flex-shrink:0;width:96px;background:#faf9f5;">04</div>
+          <div class="flowNum" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:44px;color:#316745;letter-spacing:.05em;flex-shrink:0;width:72px;background:#faf9f5;">04</div>
           <div>
-            <div style="font-weight:700;font-size:32px;color:#1a1a1a;margin-bottom:14px;">試食</div>
-            <p style="margin:0;font-size:20px;color:#777;line-height:1.9;">実際に召し上がっていただき、率直なご感想をいただきます。</p>
+            <div style="font-weight:700;font-size:24px;color:#1a1a1a;margin-bottom:12px;">試食</div>
+            <p style="margin:0;font-size:16px;color:#777;line-height:1.9;">実際に召し上がっていただき、率直なご感想をいただきます。</p>
           </div>
         </div>
         <div class="flowRow" style="display:flex;gap:44px;align-items:center;padding:36px 0;position:relative;z-index:1;">
-          <div class="flowNum" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:60px;color:#c9171e;letter-spacing:.05em;flex-shrink:0;width:96px;background:#faf9f5;">05</div>
+          <div class="flowNum" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:44px;color:#c9171e;letter-spacing:.05em;flex-shrink:0;width:72px;background:#faf9f5;">05</div>
           <div>
-            <div style="font-weight:700;font-size:32px;color:#1a1a1a;margin-bottom:14px;">現場指導・オペレーション確認</div>
-            <p style="margin:0;font-size:20px;color:#777;line-height:1.9;">厨房で無理なく再現できるか、実際の現場で確認しながら提供開始まで伴走します。</p>
+            <div style="font-weight:700;font-size:24px;color:#1a1a1a;margin-bottom:12px;">現場指導・オペレーション確認</div>
+            <p style="margin:0;font-size:16px;color:#777;line-height:1.9;">厨房で無理なく再現できるか、実際の現場で確認しながら提供開始まで伴走します。</p>
           </div>
         </div>
       </div>
@@ -355,12 +357,27 @@
       <div style="border-top:1px solid #eee;padding:56px 0 96px;">
         <div style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:900;font-size:40px;color:#1a1a1a;margin-bottom:20px;">INSTAGRAM</div>
         <div style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:20px;color:#555;margin-bottom:28px;">@came_true_inc</div>
-        <div class="igGrid" style="display:flex;gap:10px;">
-          <div class="ph" style="width:110px;height:110px;border-radius:6px;">1</div>
-          <div class="ph" style="width:110px;height:110px;border-radius:6px;">2</div>
-          <div class="ph" style="width:110px;height:110px;border-radius:6px;">3</div>
-          <div class="ph" style="width:110px;height:110px;border-radius:6px;">4</div>
-          <div class="ph" style="width:110px;height:110px;border-radius:6px;">5</div>
+        <div class="igGrid" style="display:grid;grid-template-columns:repeat(10,80px);gap:8px;">
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">1</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">2</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">3</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">4</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">5</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">6</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">7</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">8</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">9</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">10</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">11</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">12</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">13</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">14</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">15</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">16</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">17</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">18</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">19</div>
+          <div class="ph" style="width:80px;height:80px;border-radius:6px;">20</div>
         </div>
       </div>
     </div>
