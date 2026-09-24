@@ -48,7 +48,7 @@
     .problemsGrid { grid-template-columns: 1fr !important; }
     .problemsGrid > div { padding: 28px 24px !important; }
 
-    #parallaxBreak { height: 220px !important; }
+    #parallaxBreak { height: 220px !important; background-attachment: scroll !important; }
 
     .strengthLead { font-size: 17px !important; }
     .strengthRow { flex-direction: column !important; align-items: flex-start !important; margin-bottom: 48px !important; gap: 20px !important; }
@@ -67,7 +67,7 @@
     .flowRow p { font-size: 15px !important; }
 
     .founderSection { height: auto !important; min-height: 640px !important; }
-    .founderPanel { right: 20px !important; left: 20px !important; width: auto !important; max-width: none !important; }
+    .founderPanel { right: 20px !important; left: 20px !important; width: auto !important; min-width: 0 !important; max-width: none !important; }
     .founderPanel p { font-size: 13.5px !important; }
 
     #contact > div { padding: 0 20px !important; }
@@ -165,26 +165,9 @@
         </div>
       </div>
     </div>
-  </div><div id="parallaxBreak" style="height:420px;overflow:hidden;position:relative;">
-    <img id="parallaxImg" src="assets/7e2aaa8319a89935d3ef5b876be2921e.jpg" alt="" style="position:absolute;left:0;top:-15%;width:100%;height:130%;object-fit:cover;will-change:transform;">
+  </div><div id="parallaxBreak" class="parallaxBreak" style="height:420px;background-image:url('assets/7e2aaa8319a89935d3ef5b876be2921e.jpg');background-size:cover;background-position:center;background-attachment:fixed;position:relative;">
     <div style="position:absolute;inset:0;background:rgba(20,20,18,0.15);"></div>
   </div>
-  <script>
-    (function(){
-      var wrap = document.getElementById('parallaxBreak');
-      var img = document.getElementById('parallaxImg');
-      if (!wrap || !img) return;
-      function onScroll(){
-        var rect = wrap.getBoundingClientRect();
-        var vh = window.innerHeight || document.documentElement.clientHeight;
-        var progress = (vh - rect.top) / (vh + rect.height); // 0 to 1 as it crosses viewport
-        var offset = (progress - 0.5) * 80; // px shift range
-        img.style.transform = 'translateY(' + offset + 'px)';
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    })();
-  </script>
 
   <!-- ===== 04 メリット＋強み（05サービス一覧を統合） ===== -->
   
@@ -325,7 +308,7 @@
   <div id="founder" class="founderSection" style="position:relative;width:100%;height:820px;overflow:hidden;">
     <img src="assets/86e8ddb65550b8265cc2c6d8478daa6c.jpg" alt="代表 西濱智成" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;">
     <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(20,42,30,0) 40%, rgba(20,42,30,0.8) 63%, rgba(20,42,30,0.92) 100%);"></div>
-    <div class="founderPanel" style="position:absolute;right:110px;top:0;bottom:0;width:420px;max-width:80%;display:flex;flex-direction:column;justify-content:center;">
+    <div class="founderPanel" style="position:absolute;right:6%;top:0;bottom:0;width:32%;min-width:280px;max-width:420px;display:flex;flex-direction:column;justify-content:center;">
       <div class="eyebrow" style="color:rgba(255,255,255,0.6);">FOUNDER</div>
       <div style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:24px;color:#fff;margin-bottom:6px;">西濱 智成</div>
       <div style="font-size:12.5px;color:rgba(255,255,255,0.6);margin-bottom:26px;">代表取締役</div>
