@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CAME TRUE（カメツル） | 企画・メニュー開発・製造PBサポート・デザイン制作</title>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@400;500;700;900&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@400;500;700;900&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Klee+One:wght@600&amp;display=swap">
 <style>
   body { margin: 0; font-family: 'Noto Sans JP', sans-serif; color: #1a1a1a; }
   a { color: inherit; text-decoration: none; }
@@ -26,6 +26,11 @@
   .marqueeRow2 .marqueeTrack { animation: marqueeRight 70s linear infinite; }
 
   @media (max-width: 768px) {
+    .founderBand { height: auto !important; padding: 36px 24px !important; }
+    .founderBand p { font-size: 24px !important; transform: none !important; }
+    .founderFloatImg { float: none !important; width: 100% !important; min-width: 0 !important; height: 240px !important; margin: 0 0 24px 0 !important; }
+    .founderBody { padding: 0 24px 56px !important; }
+    .founderBody p:first-of-type { margin-top: 24px !important; }
     .wrap { padding: 0 24px !important; }
     .h2 { font-size: 32px !important; }
     .eyebrow { font-size: 11px !important; }
@@ -309,21 +314,18 @@
   </div>
 
   <!-- ===== 08 代表紹介（写真フル使い＋右グラデーション） ===== -->
-  <div id="founder" style="width:100%;position:relative;">
-    <div style="display:flex;background:#1f3a2b;height:340px;flex-wrap:wrap;">
-      <div style="flex:1 1 420px;display:flex;align-items:center;padding:56px 5%;">
-        <div>
-          <p style="margin:0;font-size:32px;font-weight:700;line-height:1.6;color:#fff;">飲食の「つくる」を、<br>現場で「売れる」へ。</p>
-          <p style="margin:16px 0 0;font-size:14px;color:rgba(255,255,255,0.6);">メニュー開発から、業態開発・店舗立ち上げまで。</p>
-        </div>
+  <div id="founder" class="founderSection" style="width:100%;background:#ffffff;">
+    <div class="founderBand" style="background:#1f3a2b;height:220px;display:flex;align-items:center;padding:0 5%;">
+      <div>
+        <p style="margin:0;font-family:'Klee One',sans-serif;font-weight:600;font-size:34px;line-height:1.6;color:#fff;transform:rotate(-2deg);transform-origin:left center;">飲食の「つくる」を、<br>現場で「売れる」へ。</p>
+        <p style="margin:14px 0 0;font-size:14px;color:rgba(255,255,255,0.6);">メニュー開発から、業態開発・店舗立ち上げまで。</p>
       </div>
-      <div style="flex:1 1 420px;"></div>
     </div>
-    <img src="assets/founder_plating.jpg" alt="" style="position:absolute;top:0;right:0;width:46%;min-width:340px;height:460px;object-fit:cover;display:block;">
-    <div style="background:#ffffff;padding:72px 5% 72px;margin-top:0;position:relative;z-index:0;">
-      <div style="max-width:760px;margin:0 auto;">
-        <p style="margin:0 0 24px;font-size:16px;line-height:1.9;color:#333;">CAME TRUEは、飲食店・飲食企業の商品開発、メニュー開発、業態開発、店舗立ち上げ、オペレーション設計など、飲食に関わる「開発」をサポートする会社です。</p>
-        <ul style="margin:0 0 24px;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;font-size:15px;line-height:1.8;color:#444;">
+    <div class="founderBody" style="padding:0 5% 72px;">
+      <div style="max-width:900px;margin:0 auto;">
+        <img class="founderFloatImg" src="assets/founder_plating.jpg" alt="" style="float:right;width:42%;min-width:300px;height:460px;object-fit:cover;margin:-220px 0 24px 32px;">
+        <p style="margin:72px 0 24px;font-size:16px;line-height:1.9;color:#333;">CAME TRUEは、飲食店・飲食企業の商品開発、メニュー開発、業態開発、店舗立ち上げ、オペレーション設計など、飲食に関わる「開発」をサポートする会社です。</p>
+        <ul style="margin:0 0 24px;padding:0;list-style:none;font-size:15px;line-height:1.9;color:#444;">
           <li>・新しいメニューをつくりたい。</li>
           <li>・既存商品の魅力を高めたい。</li>
           <li>・新しい業態を立ち上げたい。</li>
@@ -331,7 +333,9 @@
           <li>・現場のオペレーションを見直したい。</li>
           <li>・開発業務を外部に任せたい。</li>
         </ul>
-        <p style="margin:0 0 32px;font-size:16px;line-height:1.9;color:#333;">そんな飲食に関するさまざまな課題に対して、現場経験と開発経験の両方を活かし、企画から商品開発、現場への落とし込みまで、実践的にサポートします。</p>
+        <p style="margin:0 0 40px;font-size:16px;line-height:1.9;color:#333;">そんな飲食に関するさまざまな課題に対して、現場経験と開発経験の両方を活かし、企画から商品開発、現場への落とし込みまで、実践的にサポートします。</p>
+        <div style="clear:both;"></div>
+        <div style="font-size:12px;letter-spacing:.18em;color:#999;margin-bottom:16px;">PROFILE</div>
         <p style="margin:0 0 40px;font-size:16px;line-height:1.9;color:#333;">
           1977年生まれ。18歳でイタリアンレストランに入り、料理人として飲食の世界へ。21歳で、NYスタイルのデリカテッセンとして一躍注目を集めた「news DELI」を展開する企業に入社。商品開発をはじめ、総料理長として新業態の立ち上げや店舗開発にも携わる。その後、大手飲食チェーンの開発部門責任者として、数多くのメニュー開発や業態開発を手掛ける。料理人としての現場経験と、開発責任者として培った経験をもとに、味だけでなく、原価やオペレーション、提供スピード、店舗での再現性までを見据えた開発を行っています。2026年、その知見を活かしCAME TRUEを設立。商品開発・メニュー開発・業態開発を軸に、飲食の現場に新しい価値を生み出しています。
         </p>
