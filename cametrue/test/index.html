@@ -106,15 +106,15 @@
 #founder .founderWhite{background:#fff;z-index:4;box-sizing:border-box;}
 #founder .founderWhiteStep{display:none!important;}
 #founder .founderWhiteMain{position:relative;left:0;top:286px;width:79%;margin-bottom:286px;min-height:0;padding:96px 4.6% 64px;clip-path:polygon(0 0,46% 0,46% 54px,100% 54px,100% 100%,0 100%);}
-#founder .founderTextColumn{max-width:760px;margin-left:18px;}
+#founder .founderTextColumn{max-width:680px;margin-left:auto;margin-right:auto;}
 #founder .founderIntroTitle{font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:900;font-size:28px;line-height:1.5;color:#1a1a1a;margin:0 0 8px;letter-spacing:.01em;}
 #founder .founderIntroCaption{font-family:'Zen Kaku Gothic Antique',sans-serif;font-size:19px;line-height:1.55;font-weight:700;color:#555;margin:0 0 16px;}
 #founder .founderTextColumn p{margin:0 0 20px;font-size:15px;line-height:1.9;color:#333;}
-#founder .founderNeeds{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px;margin:0 0 22px;padding:0;list-style:none;font-size:14px;line-height:1.75;color:#444;}
+#founder .founderNeeds{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px;margin:0 0 22px;padding:0;list-style:none;font-size:14px;font-weight:600;line-height:1.75;color:#333;}
 #founder .founderDivider{width:42px;height:1px;background:#d8d8d4;margin:34px auto 30px;}
-#founder .founderProfileBlock{width:82%;margin:0 auto;}
-#founder .founderProfileLabel{font-size:11px;letter-spacing:.18em;color:#999;margin-bottom:14px;}
-#founder .founderTextColumn p.founderProfileText{font-size:14.5px;line-height:1.9;color:#444;margin-bottom:28px;}
+#founder .founderProfileBlock{width:82%;max-width:760px;margin:0 auto;}
+#founder .founderProfileLabel{display:flex;align-items:center;justify-content:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.18em;color:#1f3a2b;margin-bottom:18px;}#founder .founderProfileLabel::before,#founder .founderProfileLabel::after{content:'';display:block;width:28px;height:1px;background:#1f3a2b;opacity:.65;}
+#founder .founderTextColumn p.founderProfileText{font-size:15px;line-height:1.9;color:#333;margin-bottom:28px;text-align:left;}
 #founder .founderSignature{text-align:right;font-size:12px;color:#666;line-height:1.5;}
 #founder .founderSignature strong{display:block;font-family:'Zen Kaku Gothic Antique',sans-serif;font-size:17px;color:#1a1a1a;margin-top:3px;}
 @media(max-width:768px){
@@ -129,6 +129,82 @@
  #founder .founderIntroTitle{font-size:25px;}
  #founder .founderIntroCaption{font-size:18px;}
  #founder .founderNeeds{grid-template-columns:1fr;gap:6px;}
+}
+</style>
+
+
+<style id="back-button-final47">
+#backToTop, .backToTop, .back-to-top, .pageTop, .page-top, .toTop, .to-top {
+  width:64px!important;
+  height:64px!important;
+  min-width:64px!important;
+  min-height:64px!important;
+  border-radius:50%!important;
+  background:#c93a32!important;
+  border-color:#c93a32!important;
+}
+</style>
+
+
+<style id="final48-adjustments">
+/* Bottom-right back control */
+.backToTopWrap .backToTopBtn,
+.backToTopBtn,
+a.backToTopBtn,
+button.backToTopBtn {
+  width:68px!important;
+  height:68px!important;
+  min-width:68px!important;
+  min-height:68px!important;
+  border-radius:50%!important;
+  background-color:#c9342f!important;
+  border-color:#c9342f!important;
+}
+/* Preserve the existing arrow/text artwork color */
+.backToTopWrap .backToTopBtn,
+.backToTopWrap .backToTopBtn * {
+  color:#fff!important;
+}
+</style>
+
+
+<style id="founder-profile-divider-final50">
+#founder .founderSectionDivider{
+  width:72px;
+  height:1px;
+  background:#d2d2ce;
+  margin:42px auto 34px;
+}
+@media(max-width:768px){
+  #founder .founderSectionDivider{
+    width:56px;
+    margin:36px auto 30px;
+  }
+}
+</style>
+
+
+<style id="founder-profile-final51">
+#founder .founderProfileBlock{
+  width:94%;
+  max-width:860px;
+}
+#founder .founderProfileLabel{
+  display:block;
+}
+#founder .founderProfileLabel::before,
+#founder .founderProfileLabel::after{
+  content:none!important;
+  display:none!important;
+}
+#founder .founderTextColumn p.founderProfileText{
+  line-height:2!important;
+}
+@media(max-width:768px){
+  #founder .founderProfileBlock{
+    width:100%;
+    max-width:none;
+  }
 }
 </style>
 
@@ -376,7 +452,7 @@
           <li>・開発業務を外部に任せたい。</li>
         </ul>
         <p>そんな飲食に関するさまざまな課題に対して、現場経験と開発経験の両方を活かし、企画から商品開発、現場への落とし込みまで、実践的にサポートします。</p>
-        <div class="founderDivider"></div>
+        <div class="founderSectionDivider" aria-hidden="true"></div>
         <div class="founderProfileBlock">
           <div class="founderProfileLabel">PROFILE</div>
           <p class="founderProfileText">1977年生まれ。18歳でイタリアンレストランに入り、料理人として飲食の世界へ。21歳で、NYスタイルのデリカテッセンとして一躍注目を集めた「news DELI」を展開する企業に入社。商品開発をはじめ、総料理長として新業態の立ち上げや店舗開発にも携わる。その後、大手飲食チェーンの開発部門責任者として、数多くのメニュー開発や業態開発を手掛ける。料理人としての現場経験と、開発責任者として培った経験をもとに、味だけでなく、原価やオペレーション、提供スピード、店舗での再現性までを見据えた開発を行っています。2026年、その知見を活かしCAME TRUEを設立。商品開発・メニュー開発・業態開発を軸に、飲食の現場に新しい価値を生み出しています。</p>
@@ -456,7 +532,7 @@
   </div>
 
   <!-- ===== 右下 トップへ戻るボタン ===== -->
-  <a href="#top" style="position:fixed;right:28px;bottom:28px;width:48px;height:48px;border-radius:50%;background:#1f3a2b;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,0.2);">
+  <a href="#top" style="position:fixed;right:28px;bottom:28px;width:64px;height:64px;border-radius:50%;background:#c9171e;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,0.2);">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 10L8 4L14 10" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
   </a>
 
