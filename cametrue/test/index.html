@@ -223,7 +223,12 @@ button.backToTopBtn {
 
 
 <style id="mobile-final49">
+.spBr { display: none; }
 @media (max-width: 768px) {
+  .spBr { display: inline !important; }
+  /* ヒーロー：写真の大きさはそのままで下だけ切る */
+  .heroSection { height: 480px !important; overflow: hidden; }
+  .heroContent > img { height: 560px !important; bottom: auto !important; }
   /* ヘッダー */
   .siteHeader { padding: 6px 20px !important; }
   .siteHeader img { height: 36px !important; }
@@ -308,7 +313,7 @@ button.backToTopBtn {
   <div style="background:#faf9f5;padding:80px 0 90px;position:relative;overflow:hidden;">
     <div class="wrap" style="position:relative;">
       <div class="bgLabel" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:900;font-size:160px;color:#ffffff;letter-spacing:.04em;line-height:1;margin-bottom:-70px;white-space:nowrap;">PROBLEMS</div>
-      <div class="h2" style="position:relative;margin-bottom:56px;font-size:52px;">こんな<span style="color:#c9171e;">お悩み</span>、ありませんか？</div>
+      <div class="h2" style="position:relative;margin-bottom:56px;font-size:52px;">こんな<span style="color:#c9171e;">お悩み</span>、<br class="spBr">ありませんか？</div>
       <div class="problemsGrid" style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
         <div style="background:#fff;border-radius:14px;padding:38px 34px;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
           <div style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:22px;color:#1a1a1a;margin-bottom:16px;">商品化までの壁</div>
@@ -341,7 +346,7 @@ button.backToTopBtn {
     <div style="position:absolute;bottom:0;left:0;width:26%;height:20%;opacity:0.07;pointer-events:none;background-image:url('data:image/svg+xml;utf8,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2276%22 viewBox=%220 0 44 76%22&gt;&lt;path d=%22M22.00 3.00 L41.36 14.00 L41.36 36.00 L22.00 47.00 L2.64 36.00 L2.64 14.00 Z%22 fill=%22none%22 stroke=%22%231a1a1a%22 stroke-width=%222.6%22 stroke-linejoin=%22miter%22/&gt;&lt;/svg&gt;');background-repeat:repeat;-webkit-mask-image:radial-gradient(circle at bottom left, black 0%, black 45%, transparent 85%);mask-image:radial-gradient(circle at bottom left, black 0%, black 45%, transparent 85%);"></div>
     <div class="wrap" style="position:relative;">
       <div class="bgLabel" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:900;font-size:160px;color:#f9f8f5;letter-spacing:.04em;line-height:1;margin-bottom:-70px;white-space:nowrap;">STRENGTH</div>
-      <div class="h2" style="position:relative;margin-bottom:28px;font-size:52px;">想いを、<span style="color:#316745;">かたちにする力。</span></div>
+      <div class="h2" style="position:relative;margin-bottom:28px;font-size:52px;">想いを、<br class="spBr"><span style="color:#316745;">かたちにする力。</span></div>
       <p class="strengthLead" style="margin:0 0 72px;font-size:20px;font-weight:500;line-height:1.7;color:#444;">企画・メニュー開発・デザイン、それぞれを別の会社に頼む必要はありません。<strong style="color:#316745;">ひとつの窓口</strong>で、商品が完成するまで伴走します。</p>
       <div class="strengthRow" style="display:flex;align-items:center;gap:48px;margin-bottom:88px;">
         <img class="strengthImg" src="assets/167bed3147f0f68dfbe4db64d2d40a7d.jpg" alt="企画・メニュー開発" style="width:480px;height:360px;border-radius:8px;flex-shrink:0;object-fit:cover;">
@@ -427,7 +432,7 @@ button.backToTopBtn {
   <div class="flowSection" style="background:#faf9f5;padding:100px 0 140px;position:relative;overflow:hidden;">
     <div class="wrap" style="position:relative;">
       <div class="bgLabel" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:900;font-size:160px;color:#ffffff;letter-spacing:.04em;line-height:1;margin-bottom:-70px;white-space:nowrap;">FLOW</div>
-      <div class="h2" style="position:relative;margin-bottom:52px;font-size:54px;">アイデアが、<span style="color:#c9171e;">お店に並ぶ</span>まで</div>
+      <div class="h2" style="position:relative;margin-bottom:52px;font-size:54px;">アイデアが、<br class="spBr"><span style="color:#c9171e;">お店に並ぶ</span>まで</div>
       <div style="position:relative;">
         <div style="position:absolute;left:48px;top:62px;bottom:62px;width:1px;background:#ddd;z-index:0;"></div>
         <div class="flowRow" style="display:flex;gap:44px;align-items:center;padding:36px 0;border-bottom:1px solid #eee;position:relative;z-index:1;">
