@@ -221,6 +221,32 @@ button.backToTopBtn {
 }
 </style>
 
+
+<style id="mobile-final49">
+@media (max-width: 768px) {
+  /* ヘッダー */
+  .siteHeader { padding: 6px 20px !important; }
+  .siteHeader img { height: 36px !important; }
+  /* ロゴと見出しの間の縦線 */
+  .conceptLeft > div[style*="height:180px"] { height: 40px !important; }
+  .conceptLeft img { margin-bottom: 20px !important; }
+  /* セクション見出しの位置（上端から80px） */
+  #service, #contact, #company, #works { padding-top: 80px !important; }
+  .flowSection { padding-top: 80px !important; padding-bottom: 44px !important; }
+  .worksHead { height: auto !important; padding: 0 24px !important; margin-bottom: 24px !important; }
+  .worksTitle { position: static !important; line-height: 1.2 !important; }
+  /* コンセプト本文：改行をなくし文字間を詰める */
+  .conceptRow div[style*="font-size:19px"] { font-feature-settings: "palt" 1; letter-spacing: -0.02em !important; }
+  .conceptRow div[style*="font-size:19px"] br { display: none !important; }
+  /* ヒーロー：上部にうっすらグラデーション */
+  .heroShade { background: linear-gradient(180deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.06) 75%) !important; }
+  .heroTitle { text-shadow: 0 2px 14px rgba(0,0,0,0.55) !important; }
+  .heroSub { text-shadow: 0 1px 10px rgba(0,0,0,0.6) !important; }
+  /* 代表紹介：段落の余白・写真の高さ */
+  #founder .founderProfileText br { display: block; content: ""; margin-top: 14px; }
+  #founder .founderPhoto { height: 300px !important; object-position: center top !important; }
+}
+</style>
 </head>
 <body>
 
@@ -240,7 +266,7 @@ button.backToTopBtn {
   <div class="heroSection" style="position:relative;width:100%;height:640px;">
     <div class="heroContent" style="position:relative;width:100%;height:100%;">
       <img src="assets/hero_new.jpg" alt="調理風景" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% center;">
-      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.06);"></div>
+      <div class="heroShade" style="position:absolute;inset:0;background:rgba(0,0,0,0.06);"></div>
       <div class="heroTextBox" style="position:absolute;left:64px;right:64px;top:160px;max-width:600px;">
         <div class="heroTitle" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:900;font-size:80px;line-height:1.1;color:#ffffff;margin:0 0 28px;text-shadow:0 2px 16px rgba(0,0,0,0.35);">アイデアを<br class="pcBr">創造する</div>
         <div class="heroSub" style="font-size:20px;line-height:1.8;font-weight:700;color:#ffffff;text-shadow:0 1px 10px rgba(0,0,0,0.35);">CAME TRUE（カメツル） 想いをかたちにする、<br>小さなクリエイティブ事務所です。</div>
@@ -368,7 +394,7 @@ button.backToTopBtn {
       });
     })();
   </script><div id="works" style="padding:88px 0;position:relative;overflow:hidden;border-top:1px solid #eee;">
-    <div style="position:relative;padding:0 60px;margin-bottom:40px;height:200px;">
+    <div class="worksHead" style="position:relative;padding:0 60px;margin-bottom:40px;height:200px;">
       <div class="bgLabel" style="position: absolute; top: -9px; left: -13px; font-family: 'Zen Kaku Gothic Antique',sans-serif; font-weight: 900; font-size: 160px; color: #f8f7f3; letter-spacing: .06em; white-space: nowrap; line-height: 1">ARCHIVE</div>
       <div class="worksTitle" style="position:absolute;bottom:8px;left:60px;font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:900;font-size:72px;color:#1a1a1a;letter-spacing:.02em;">WORKS</div>
     </div>
@@ -398,7 +424,7 @@ button.backToTopBtn {
   </div>
 
   <!-- ===== 07 導入の流れ ===== -->
-  <div style="background:#faf9f5;padding:100px 0 140px;position:relative;overflow:hidden;">
+  <div class="flowSection" style="background:#faf9f5;padding:100px 0 140px;position:relative;overflow:hidden;">
     <div class="wrap" style="position:relative;">
       <div class="bgLabel" style="font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:900;font-size:160px;color:#ffffff;letter-spacing:.04em;line-height:1;margin-bottom:-70px;white-space:nowrap;">FLOW</div>
       <div class="h2" style="position:relative;margin-bottom:52px;font-size:54px;">アイデアが、<span style="color:#c9171e;">お店に並ぶ</span>まで</div>
