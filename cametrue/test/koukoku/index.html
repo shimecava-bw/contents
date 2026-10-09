@@ -3,35 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>決算公告 | CAME TRUE（カメツル）</title>
+<title>電子公告 | CAME TRUE（カメツル）</title>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@400;500;700;900&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
   body { margin: 0; font-family: 'Noto Sans JP', sans-serif; color: #1a1a1a; }
   a { color: inherit; text-decoration: none; }
   .wrap { max-width: 1000px; margin: 0 auto; padding: 0 60px; }
-  .h2 { font-family: 'Zen Kaku Gothic Antique', sans-serif; font-weight: 900; font-size: 40px; color: #1a1a1a; margin: 0 0 40px; }
+  .h2 { font-family: 'Zen Kaku Gothic Antique', sans-serif; font-weight: 900; font-size: 26px; color: #1a1a1a; margin: 0 0 28px; }
 
-  .noticeCard { background: #fff; border-radius: 14px; padding: 8px 40px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
-  .noticeRow { display: flex; align-items: center; gap: 32px; padding: 28px 0; border-bottom: 1px solid #eee; }
+  .noticeCard { background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 0 28px; max-width: 700px; box-sizing: border-box; margin: 0 auto; }
+  .noticeRow { display: flex; align-items: center; gap: 24px; padding: 18px 0; border-bottom: 1px solid #eee; }
   .noticeRow:last-child { border-bottom: none; }
-  .noticeTitle { flex: 1; font-size: 18px; font-weight: 700; line-height: 1.7; color: #1a1a1a; }
-  .noticeTitle small { display: block; font-size: 14px; font-weight: 400; color: #777; margin-top: 2px; }
-  .noticeDate { width: 140px; font-size: 14px; color: #777; flex-shrink: 0; }
-  .noticePdf { flex-shrink: 0; display: inline-block; padding: 10px 22px; border: 1px solid #316745; border-radius: 6px; font-size: 14px; font-weight: 700; color: #316745; }
-  .noticePdf:hover { background: #316745; color: #fff; }
+  .noticeTitle { flex: 1; font-size: 13px; font-weight: 700; line-height: 1.7; color: #1a1a1a; }
+  .noticeDate { width: 130px; font-size: 12px; color: #555; flex-shrink: 0; }
+  .noticePdf { flex-shrink: 0; display: inline-block; padding: 6px 16px; border: 1px solid #bbb; border-radius: 4px; font-size: 12px; font-weight: 500; color: #555; }
+  .noticePdf:hover { background: #555; color: #fff; border-color: #555; }
 
   @media (max-width: 768px) {
     .wrap { padding: 0 20px !important; }
-    .h2 { font-size: 28px !important; margin-bottom: 28px !important; }
+    .h2 { font-size: 22px !important; margin-bottom: 20px !important; }
     .siteHeader { padding: 14px 20px !important; }
     .siteHeader img { height: 40px !important; }
     .navLinks { display: none !important; }
-    .noticeCard { padding: 4px 20px; }
-    .noticeRow { flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px 0; }
-    .noticeTitle { font-size: 16px; }
+    .noticeCard { padding: 0 16px; }
+    .noticeRow { flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px 0; }
+    .noticeTitle { font-size: 13px; }
     .noticeDate { width: auto; }
-    .siteFooter { flex-direction: column !important; gap: 14px !important; text-align: center !important; padding: 28px 20px !important; }
+    .siteFooter { grid-template-columns: 1fr !important; row-gap: 14px !important; text-align: center !important; padding: 28px 20px !important; }
+    .footerNotice { text-align: center !important; padding-right: 0 !important; }
     .footerLinks { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 16px !important; }
   }
 </style>
@@ -49,43 +49,47 @@
   </div>
 
   <!-- ===== 決算公告 ===== -->
-  <div style="background:#faf9f5;padding:80px 0 110px;">
+  <div style="background:#fff;padding:72px 0 100px;">
     <div class="wrap">
-      <h2 class="h2">決算公告</h2>
+      <h2 class="h2">電子公告</h2>
 
       <!-- ダミー表示（テスト用）。本番ではこの3行を実際の決算公告の行に差し替える -->
       <div class="noticeCard">
         <div class="noticeRow">
-          <div class="noticeTitle">第3期 決算公告 貸借対照表（20XX年X月X日現在）<small>※サンプル（レイアウト確認用）</small></div>
+          <div class="noticeTitle">第3期 決算公告 貸借対照表（20XX年X月X日現在）</div>
           <div class="noticeDate">20XX年X月X日</div>
           <a class="noticePdf" href="pdf/dummy-3.pdf" target="_blank" rel="noopener">PDFを開く</a>
         </div>
         <div class="noticeRow">
-          <div class="noticeTitle">第2期 決算公告 貸借対照表（20XX年X月X日現在）<small>※サンプル（レイアウト確認用）</small></div>
+          <div class="noticeTitle">第2期 決算公告 貸借対照表（20XX年X月X日現在）</div>
           <div class="noticeDate">20XX年X月X日</div>
           <a class="noticePdf" href="pdf/dummy-2.pdf" target="_blank" rel="noopener">PDFを開く</a>
         </div>
         <div class="noticeRow">
-          <div class="noticeTitle">第1期 決算公告 貸借対照表（20XX年X月X日現在）<small>※サンプル（レイアウト確認用）</small></div>
+          <div class="noticeTitle">第1期 決算公告 貸借対照表（20XX年X月X日現在）</div>
           <div class="noticeDate">20XX年X月X日</div>
           <a class="noticePdf" href="pdf/dummy-1.pdf" target="_blank" rel="noopener">PDFを開く</a>
         </div>
       </div>
 
       <!-- 本番で行が無い間に表示する一文（ダミー表示中は非表示）
-      <p style="margin:0;font-size:17px;line-height:1.9;color:#555;">現在、掲載している決算公告はありません。</p>
+      <p style="margin:0;font-size:17px;line-height:1.9;color:#555;">現在、掲載している公告はありません。</p>
       -->
     </div>
   </div>
 
   <!-- ===== フッター（トップと同じ） ===== -->
-  <div class="siteFooter" style="background:#1f3a2b;padding:40px 60px;display:flex;align-items:center;justify-content:space-between;">
+  <div class="siteFooter" style="background:#1f3a2b;padding:40px 60px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;column-gap:24px;">
     <div style="color:#fff;font-family:'Zen Kaku Gothic Antique',sans-serif;font-weight:700;font-size:14px;">CAMETRUE</div>
-    <div class="footerLinks" style="display:flex;gap:24px;font-size:11.5px;color:#ccc;">
-      <span>サービス</span><span>Works</span><span>代表紹介</span><span>会社概要</span><span>お問い合わせ</span><a href="./" style="color:#fff;">決算公告</a>
+    <div class="footerCenter" style="text-align:center;">
+      <div class="footerLinks" style="display:flex;gap:24px;font-size:11.5px;color:#fff;justify-content:center;">
+        <span>サービス</span><span>Works</span><span>代表紹介</span><span>会社概要</span><span>お問い合わせ</span>
+      </div>
+      <div class="footerCopy" style="margin-top:14px;font-size:10.5px;color:#fff;">© 2026 CAME TRUE Inc.</div>
     </div>
-    <div style="color:#777;font-size:11px;">© CAME TRUE</div>
+    <div class="footerNotice" style="text-align:right;font-size:11.5px;padding-right:80px;"><a href="./" style="color:#8fa398;">電子公告</a></div>
   </div>
+</div>
 
 </div>
 
